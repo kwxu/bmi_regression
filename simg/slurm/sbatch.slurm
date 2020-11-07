@@ -2,7 +2,7 @@
 #SBATCH --account=vuiis_masi_gpu_acc
 #SBATCH --partition=pascal
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
 #SBATCH --mail-type=ALL
 #SBATCH --ntasks=1
 #SBATCH --time=15:00:00

@@ -1,7 +1,7 @@
 task: 'BMI'
-exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/BMI_regression_1'
-input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/s14_ori_final_resample'
-input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s1_resampled'
+exp_dir: '/proj_root/output/simg_bmi_regression_0'
+input_img_dir: '/proj_root/data/s14_ori_final_resample'
+input_jac_dir: '/proj_root/data/atlas/jac/s1_resampled'
 learning_rate: 0.00001   #default 0.0001s
 res:
   - 192
@@ -15,9 +15,9 @@ sample_size: 128
 sample_duration: 64
 batch_size: 2
 fcnum: 1536
-networkName: 'resnet10'
-label_csv: '/nfs/masi/xuk9/SPORE/clustering/registration/20200512_corrField/male/clinical/label_full_combined.csv'
-train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/complete_list'
+networkName: 'resnet34'
+label_csv: '/proj_root/clinical/label_full_combined.csv'
+train_file_list_txt: '/proj_root/file_lists/complete_list'
 add_intensity_map: True
 add_jacobian_map: False
 data_augmentation: True

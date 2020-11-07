@@ -456,9 +456,6 @@ class ClinicalDataReaderSPORE:
         file_list_with_valid_label = [file_list_with_valid_label[idx] for idx in valid_idx_list]
 
         logger.info(f'Number of scans without valid label: {len(file_list) - len(valid_idx_list)}')
-        bmi_array = bmi_array[valid_idx_list]
-
-        file_list_with_valid_label = [file_list_with_valid_label[idx] for idx in valid_idx_list]
 
         return bmi_array, file_list_with_valid_label
 

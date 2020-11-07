@@ -292,7 +292,7 @@ class Trainer(object):
 
             pred_val = self.model(data)
 
-            test_loss = nn.MSELoss()(pred_val, target)
+            test_loss = nn.MSELoss()(pred_val, target.float())
 
             sofar += data.size(0)
 
