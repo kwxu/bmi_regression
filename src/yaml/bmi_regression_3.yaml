@@ -1,0 +1,34 @@
+task: 'BMI'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/BMI_regression_3'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/s14_ori_final_resample'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s1_resampled'
+learning_rate: 0.00005   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet101'
+label_csv: '/nfs/masi/xuk9/SPORE/clustering/registration/20200512_corrField/male/clinical/label_full_combined.csv'
+train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/train_valid_cv_list'
+add_intensity_map: True
+add_jacobian_map: False
+data_augmentation: True
+img_max: 600
+img_min: -1000
+jac_max: 10
+jac_min: -5
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50
