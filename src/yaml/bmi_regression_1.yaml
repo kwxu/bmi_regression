@@ -2,7 +2,7 @@ task: 'BMI'
 exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/BMI_regression_1'
 input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/s14_ori_final_resample'
 input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s1_resampled'
-learning_rate: 0.00005   #default 0.0001s
+learning_rate: 0.00001   #default 0.0001s
 res:
   - 192
   - 128
