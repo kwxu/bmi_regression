@@ -12,7 +12,10 @@ train_model () {
     set -o xtrace
     ${PYTHON_ENV} ${SRC_ROOT}/src/train_n_fold.py \
                   --yaml-config ${yaml_config} \
-                  --run-train "False"
+                  --run-train "False" \
+                  --run-test "True" \
+                  --run-grad-cam "False" \
+                  --train-fold -1
     set +o xtrace
 }
 

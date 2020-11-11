@@ -17,6 +17,8 @@ from skimage.transform import resize
 from torch.optim.lr_scheduler import StepLR
 import pandas as pd
 from tools.utils import get_logger
+from tools.data_io import ScanWrapper
+
 
 logger = get_logger('Trainer')
 
@@ -390,3 +392,57 @@ class Trainer(object):
         self.model.load_state_dict(torch.load(self.optimal_model_path, map_location=lambda storage, location: storage))
         self.validate(run_test=True)
 
+    def _run_grad_cam_loader(self, data_loader, out_folder):
+        mkdir_p(out_folder)
+
+        for batch_idx, (data,target,sub_name) in tqdm.tqdm(
+                enumerate(data_loader), total=len(data_loader),
+                desc='Valid epoch=%d' % self.epoch, ncols=80,
+                leave=False):
+            if self.cuda:
+                data, target = data.cuda(), target.cuda()
+            data, target = Variable(data), Variable(target)
+
+            gcam = GradCAM(model=self.model)
+            gcam.forward(data)
+            one_hot_ids = np.zeros((len(data), 1), dtype=int)
+            one_hot_ids[:, 0] = 0
+            one_hot_ids = torch.from_numpy(one_hot_ids)
+            if self.cuda:
+                one_hot_ids = one_hot_ids.cuda()
+            gcam.backward(ids=one_hot_ids)
+            regions = gcam.generate(target_layer=self.config['gcam_target_layer'])
+            targets = target.data.cpu().numpy()
+
+            file_names = list(sub_name)
+            in_img_file_paths = [os.path.join(self.config['input_img_dir'], file_name) for file_name in file_names]
+
+            for idx_scan in range(len(data)):
+                file_name = file_names[idx_scan]
+                out_img_path = osp.join(
+                    out_folder,
+                    file_name
+                )
+                in_img = ScanWrapper(in_img_file_paths[idx_scan])
+                out_heat_map = regions.cpu().numpy()[idx_scan, 0]
+                out_heat_map = np.transpose(out_heat_map, (1, 2, 0))
+                in_img.save_scan_same_space(out_img_path, out_heat_map)
+                del in_img, out_heat_map
+
+            # gcam.backward_del(ids=ids[:, [0]])
+            gcam.backward_del(ids=one_hot_ids)
+            # del gcam, probs, ids, regions
+            del gcam, regions
+
+            torch.cuda.empty_cache()
+            # gc.collect()
+
+    def run_grad_cam(self):
+        self.model.load_state_dict(torch.load(self.optimal_model_path, map_location=lambda storage, location: storage))
+        self.model.eval()
+
+        out = osp.join(self.out, 'grad_CAM')
+        mkdir_p(out)
+
+        layer_name = self.config['gcam_target_layer']
+        self._run_grad_cam_loader(self.test_loader, osp.join(out, f'test.{layer_name}'))

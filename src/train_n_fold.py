@@ -18,10 +18,11 @@ logger = get_logger('train_n_fold')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='bmi_regression_1.yaml')
-    parser.add_argument('--run-train', type=str, default='True')
-    parser.add_argument('--run-test', type=str, default='True')
-    parser.add_argument('--train-fold', type=int, default=-1)
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_3_cam.yaml')
+    parser.add_argument('--run-train', type=str, default='False')
+    parser.add_argument('--run-test', type=str, default='False')
+    parser.add_argument('--run-grad-cam', type=str, default='True')
+    parser.add_argument('--train-fold', type=int, default=1)
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'
@@ -92,6 +93,9 @@ def main():
         if args.run_test == 'True':
             trainer_obj.run_test()
             performance_array.append(trainer_obj.test_performance)
+
+        if args.run_grad_cam == 'True':
+            trainer_obj.run_grad_cam()
 
     if args.run_test == 'True':
         mse_array = np.array([statics_dict['loss'] for statics_dict in performance_array])
