@@ -143,9 +143,13 @@ def save_average(cam_list_dict, out_folder):
         # get_average_map(file_path_list, out_file)
 
 
+cam_foldr = '/nfs/masi/xuk9/SPORE/CAC_class/average_cam'
+mkdir_p(cam_foldr)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_5_cam.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_12_nfs.yaml')
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'
@@ -171,9 +175,10 @@ def main():
         # get_average_map(file_path_list, out_average_path)
         file_path_list_array += file_path_list
 
-    cam_analysis_folder = osp.join(exp_dir, f'cam_analysis')
-    mkdir_p(cam_analysis_folder)
-    out_average_path = osp.join(cam_analysis_folder, 'averaged_all.nii.gz')
+    # cam_analysis_folder = osp.join(exp_dir, f'cam_analysis')
+    # mkdir_p(cam_analysis_folder)
+    # out_average_path = osp.join(cam_analysis_folder, 'averaged_all.nii.gz')
+    out_average_path = osp.join(cam_foldr, f'{args.yaml_config}.nii.gz')
     get_average_map(file_path_list_array, out_average_path)
 
     #

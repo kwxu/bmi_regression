@@ -1,12 +1,9 @@
-# Add the valid region mask as a channel
-# Introduce 2 new tag:
-# add_valid_mask_map = True
-# apply_valid_mask = False (tested in another test)
+# Test BL idea using a overlaped crop
 task: 'BMI'
-exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_10'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_15'
 input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
-input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s3_resampled_altas_roi'
-input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s3_overlapped'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s5.1_core_995_jac'
+input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s4.3_core_anatomy_overlap_0.995'
 learning_rate: 0.00001   #default 0.0001s
 res:
   - 192
@@ -25,8 +22,8 @@ label_csv: '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
 train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/complete_list'
 add_intensity_map: False
 add_jacobian_map: True
-add_valid_mask_map: True
-apply_valid_mask: False # If true, set the value outside the mask to -255
+add_valid_mask_map: False
+apply_valid_mask: False
 data_augmentation: True
 img_max: 600
 img_min: -1000

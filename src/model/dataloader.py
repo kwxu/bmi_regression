@@ -9,7 +9,8 @@ import numpy as np
 def get_data_loader_cv(config):
     fold_num = config['fold_num']
     batch_size = config['batch_size']
-    num_workers = 2
+    # num_workers = 2
+    num_workers = 4
 
     train_valid_data_dict = get_train_data_dict(config)
     train_valid_file_name_list = [os.path.basename(file_path) for file_path in train_valid_data_dict['img_files']]
