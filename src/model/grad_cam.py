@@ -135,6 +135,9 @@ class GradCAM(_BaseWrapper):
                 self.handlers.append(module.register_forward_hook(save_fmaps(name)))
                 self.handlers.append(module.register_backward_hook(save_grads(name)))
 
+    def __del__(self):
+        del self.fmap_pool, self.grad_pool, self.candidate_layers
+
     def _find(self, pool, target_layer):
         if target_layer in pool.keys():
             return pool[target_layer]

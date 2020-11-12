@@ -116,7 +116,7 @@ def get_split_file_list(split_ratio_std, result_df):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_2_cam.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_3_cam.yaml')
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'
@@ -145,9 +145,12 @@ def main():
     cam_analysis_folder = osp.join(exp_dir, f'cam_analysis')
     mkdir_p(cam_analysis_folder)
 
-    result_dict = get_split_file_list(0.84, pred_result_total_df)
+    # result_dict = get_split_file_list(0.84, pred_result_total_df)
+    # out_root = osp.join(cam_analysis_folder, 'split_60')
 
-    out_root = osp.join(cam_analysis_folder, 'split_60')
+    result_dict = get_split_file_list(1.44, pred_result_total_df)
+    out_root = osp.join(cam_analysis_folder, 'split_85')
+
     mkdir_p(out_root)
     out_average_outlier_path = osp.join(out_root, 'average_outlier.nii.gz')
     out_average_normal_path = osp.join(out_root, 'average_normal.nii.gz')

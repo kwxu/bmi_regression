@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mail-type=ALL
 #SBATCH --ntasks=1
-#SBATCH --time=15:00:00
+#SBATCH --time=20:00:00
 #SBATCH --mem=12G
 
 SIMG_PATH=/scratch/xuk9/singularity/thorax_combine_20201022.img

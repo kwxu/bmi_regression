@@ -18,11 +18,11 @@ logger = get_logger('train_n_fold')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_3_cam.yaml')
-    parser.add_argument('--run-train', type=str, default='False')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_10_nfs.yaml')
+    parser.add_argument('--run-train', type=str, default='True')
     parser.add_argument('--run-test', type=str, default='False')
-    parser.add_argument('--run-grad-cam', type=str, default='True')
-    parser.add_argument('--train-fold', type=int, default=1)
+    parser.add_argument('--run-grad-cam', type=str, default='False')
+    parser.add_argument('--train-fold', type=int, default=0)
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'
@@ -99,9 +99,10 @@ def main():
 
     if args.run_test == 'True':
         mse_array = np.array([statics_dict['loss'] for statics_dict in performance_array])
-        mse_mean = np.mean(mse_array)
-        mse_std = np.std(mse_array)
-        perf_str = f'Mean MSE {mse_mean:.5f} ({mse_std:.5f})\n'
+        rmse_array = np.sqrt(mse_array)
+        rmse_mean = np.mean(rmse_array)
+        rmse_std = np.std(rmse_array)
+        perf_str = f'RMSE {rmse_mean:.5f} ({rmse_std:.5f})\n'
         print(f'Performance of cross-validation:')
         print(perf_str)
         perf_file = os.path.join(out_folder, 'perf')

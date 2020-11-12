@@ -145,7 +145,7 @@ def save_average(cam_list_dict, out_folder):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_2_cam.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_5_cam.yaml')
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'

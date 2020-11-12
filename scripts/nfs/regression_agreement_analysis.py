@@ -16,7 +16,7 @@ logger = get_logger('Regression analysis')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_3_cam.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_5_cam.yaml')
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'

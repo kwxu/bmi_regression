@@ -20,13 +20,31 @@ def random_rotation_twoarrays(image_array,mask_array):
     return rot_img,rot_mask
 
 
-def random_rotation_N_arrays(multi_channel_img):
+def random_rotation_N_arrays(multi_channel_img, pad_val=0):
     random_degree = random.uniform(-15, 15)
     rot_img = multi_channel_img.copy()
     for idx_channel in range(multi_channel_img.shape[0]):
-        rot_img[idx_channel] = transform.rotate(multi_channel_img[idx_channel], random_degree, preserve_range=True)
+        rot_img[idx_channel] = transform.rotate(
+            multi_channel_img[idx_channel],
+            random_degree,
+            preserve_range=True,
+            cval=pad_val,
+            clip=False
+        )
 
     return rot_img
+
+
+def apply_valid_region_mask(multi_channel_img, mask_img, ambient_val):
+    num_channel = multi_channel_img.shape[0]
+
+    mask_img = ~(mask_img.astype('bool'))
+
+    multi_channel_mask = np.tile(mask_img, (num_channel, 1, 1, 1))
+    multi_channel_img[multi_channel_mask] = ambient_val
+
+    return multi_channel_img
+
 
 '''
 def random_noise(image_array: ndarray):
@@ -117,34 +135,35 @@ def random_translation_twoarrays(image_array, mask_array, limit):
     return rt, mt
 
 
-def _translate_one_array(one_array, seed, choice):
+def _translate_one_array(one_array, seed, choice, pad_val=0):
     rt = util.crop(copy=True, ar=one_array, crop_width=((seed[0], seed[1]), (seed[2], seed[3]), (seed[4], seed[5])))
 
     if (choice[0] == 0):
-        rt = util.pad(rt, ((seed[0] + seed[1], 0), (0, 0), (0, 0)), 'constant')
+        rt = util.pad(rt, ((seed[0] + seed[1], 0), (0, 0), (0, 0)), 'constant', constant_values=pad_val)
     else:
-        rt = util.pad(rt, ((0, seed[0] + seed[1]), (0, 0), (0, 0)), 'constant')
+        rt = util.pad(rt, ((0, seed[0] + seed[1]), (0, 0), (0, 0)), 'constant', constant_values=pad_val)
 
     if (choice[1] == 0):
-        rt = util.pad(rt, ((0, 0), (seed[2] + seed[3], 0), (0, 0)), 'constant')
+        rt = util.pad(rt, ((0, 0), (seed[2] + seed[3], 0), (0, 0)), 'constant', constant_values=pad_val)
     else:
-        rt = util.pad(rt, ((0, 0), (0, seed[2] + seed[3]), (0, 0)), 'constant')
+        rt = util.pad(rt, ((0, 0), (0, seed[2] + seed[3]), (0, 0)), 'constant', constant_values=pad_val)
 
     if (choice[2] == 0):
-        rt = util.pad(rt, ((0, 0), (0, 0), (seed[4] + seed[5], 0)), 'constant')
+        rt = util.pad(rt, ((0, 0), (0, 0), (seed[4] + seed[5], 0)), 'constant', constant_values=pad_val)
     else:
-        rt = util.pad(rt, ((0, 0), (0, 0), (0, seed[4] + seed[5])), 'constant')
+        rt = util.pad(rt, ((0, 0), (0, 0), (0, seed[4] + seed[5])), 'constant', constant_values=pad_val)
 
     return rt
 
-def random_translation_N_array(multi_channel_array, limit):
+def random_translation_N_array(multi_channel_array, limit, pad_val=0):
+    # print(f'pad_val = {pad_val}')
     seed = np.random.randint(limit, size=6)
     choice = np.random.choice(2, 3)
 
     new_array = multi_channel_array.copy()
 
     for idx_channel in range(multi_channel_array.shape[0]):
-        rt = _translate_one_array(multi_channel_array[idx_channel], seed, choice)
+        rt = _translate_one_array(multi_channel_array[idx_channel], seed, choice, pad_val)
         new_array[idx_channel] = rt
 
     return new_array

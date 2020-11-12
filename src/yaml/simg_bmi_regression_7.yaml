@@ -1,0 +1,35 @@
+# Use intensity clipped jac 10%, normalized
+task: 'BMI'
+exp_dir: '/proj_root/output/simg_bmi_regression_7'
+input_img_dir: '/proj_root/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
+input_jac_dir: '/proj_root/data/atlas/jac/s3.2_10_clip_normalized'
+learning_rate: 0.00001   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet34'
+label_csv: '/proj_root/clinical/label_full_combined.csv'
+train_file_list_txt: '/proj_root/file_lists/complete_list'
+add_intensity_map: False
+add_jacobian_map: True
+data_augmentation: True
+img_max: 600
+img_min: -1000
+jac_max: 1
+jac_min: 0
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50

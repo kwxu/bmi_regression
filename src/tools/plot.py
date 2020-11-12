@@ -3,6 +3,44 @@ import pandas as pd
 import numpy as np
 
 
+def plot_training_curve(data_dict, out_png):
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    train_loss = data_dict['train_loss']
+    valid_loss = data_dict['valid_loss']
+    start_epoch = data_dict['start_epoch']
+    end_epoch = data_dict['end_epoch']
+    loss_str = data_dict['loss_str']
+
+    epoch_array = range(start_epoch, end_epoch)
+    train_loss_plot = np.full((end_epoch,), fill_value=np.nan)
+    valid_loss_plot = np.full((end_epoch,), fill_value=np.nan)
+
+    end_idx_train = len(train_loss)
+    end_idx_valid = len(valid_loss)
+    if end_idx_train > end_epoch:
+        end_idx_train = end_epoch
+    if end_idx_valid > end_epoch:
+        end_idx_valid = end_epoch
+
+    train_loss_plot[start_epoch:end_idx_train] = train_loss[start_epoch:end_idx_train]
+    valid_loss_plot[start_epoch:end_idx_valid] = valid_loss[start_epoch:end_idx_valid]
+
+    ax.plot(epoch_array, train_loss_plot[start_epoch:], label='Training loss')
+    ax.plot(epoch_array, valid_loss_plot[start_epoch:], label='Validation loss')
+
+    ax.set_xlabel('Epoch')
+    ax.set_ylabel(loss_str)
+    ax.set_xlim(start_epoch, end_epoch)
+    ax.set_ylim(0, 30)
+    ax.legend(loc='best')
+
+    print(f'Save to {out_png}')
+    plt.savefig(out_png, bbox_inches='tight', pad_inches=0.1)
+    plt.close()
+
+
+
 def plot_cv_roc(performance_array, png_path):
     fig, ax = plt.subplots(figsize=(18, 12))
 

@@ -1,6 +1,7 @@
+# using affine result as input.
 task: 'BMI'
-exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_1'
-input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_5'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/affine/s2_no_nan'
 input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s1_resampled'
 learning_rate: 0.00001   #default 0.0001s
 res:

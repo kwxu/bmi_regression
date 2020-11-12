@@ -5,6 +5,7 @@ from model.ResNet3D import resnet101, resnet34, resnet10, resnet18
 def create_model(config):
     add_intensity_map = config['add_intensity_map']
     add_jac_map = config['add_jacobian_map']
+    add_valid_mask = config['add_valid_mask_map']
     sample_size = config['sample_size']
     sample_duration = config['sample_duration']
     fcnum = config['fcnum']
@@ -17,6 +18,8 @@ def create_model(config):
     if add_intensity_map:
         num_in_channel += 1
     if add_jac_map:
+        num_in_channel += 1
+    if add_valid_mask:
         num_in_channel += 1
     if networkName == 'resnet101':
         model = resnet101(

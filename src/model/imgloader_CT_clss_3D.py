@@ -4,7 +4,7 @@ from torch.utils import data
 import nibabel as nib
 import random
 from tools.image_manipulation import random_rotation, random_rotation_twoarrays, random_translation, random_translation_twoarrays
-from tools.image_manipulation import random_rotation_N_arrays, random_translation_N_array
+from tools.image_manipulation import random_rotation_N_arrays, random_translation_N_array, apply_valid_region_mask
 # output_x = 168
 # output_y = 168
 # output_z = 64
@@ -35,6 +35,10 @@ class pytorch_loader_clss3D(data.Dataset):
         if self.add_jac_map:
             self.jacobian_maps = subdict['jacobian_maps']
 
+        self.add_valid_mask = config['add_valid_mask_map']
+        if self.add_valid_mask:
+            self.valid_masks = subdict['valid_masks']
+
         self.config = config
 
     @staticmethod
@@ -56,49 +60,54 @@ class pytorch_loader_clss3D(data.Dataset):
         file_name = self.img_names[index]
 
         x = None
-        if self.config['add_intensity_map']:
-            img_file = self.img_files[index]
-            img_3d = nib.load(img_file)
+
+        def add_channel(data, in_file, cfg_max_str, cfg_min_str):
+            img_obj = nib.load(in_file)
             img = None
             try:
-                img = img_3d.get_data()
+                img = img_obj.get_data()
             except:
-                print('******************** %s\n'%img_file)
+                print('******************** %s\n'%in_file)
 
             img = np.transpose(img, (2, 0, 1))
-            # img = (img - img.min()) / (img.max() - img.min())
-            img_max = self.config['img_max']
-            img_min = self.config['img_min']
-            img = np.clip(img, img_min, img_max)
-            img = (img - img_min) / (img_max - img_min)
+            if cfg_max_str is not None:
+                img_max = self.config[cfg_max_str]
+                img_min = self.config[cfg_min_str]
+                img = np.clip(img, img_min, img_max)
+                img = (img - img_min) / (img_max - img_min)
             img = img * 255.0
-            x = pytorch_loader_clss3D._add_channel(x, img)
+            data = pytorch_loader_clss3D._add_channel(data, img)
+
+            return data
+
+        if self.config['add_intensity_map']:
+            in_file = self.img_files[index]
+            x = add_channel(x, in_file, 'img_max', 'img_min')
 
         if self.add_jac_map:
-            jac_map_file = self.jacobian_maps[index]
-            jac_map = nib.load(jac_map_file)
-            jac_img = None
-            try:
-                jac_img = jac_map.get_data()
-            except:
-                print(f'*******************{jac_map_file} \n')
+            in_file = self.jacobian_maps[index]
+            x = add_channel(x, in_file, 'jac_max', 'jac_min')
 
-            jac_img = np.transpose(jac_img, (2, 0, 1))
+        if self.add_valid_mask:
+            in_file = self.valid_masks[index]
+            x = add_channel(x, in_file, None, None)
 
-            jac_max = self.config['jac_max']
-            jac_min = self.config['jac_min']
-            jac_img = np.clip(jac_img, jac_min, jac_max)
-            jac_img = (jac_img - jac_min) / (jac_max - jac_min)
-            jac_img = jac_img * 255.0
-            x = pytorch_loader_clss3D._add_channel(x, jac_img)
+        augmentation_pad_val = 0
+
+        if self.config['apply_valid_mask']:
+            in_file = self.valid_masks[index]
+            img_obj = nib.load(in_file)
+            mask_data = img_obj.get_data()
+            mask_data = np.transpose(mask_data, (2, 0, 1))
+            ambient_val = -255
+            augmentation_pad_val = ambient_val
+            x = apply_valid_region_mask(x, mask_data, ambient_val)
 
         if self.data_augmentation:
             rand = random.uniform(0, 1)
             if (0 <= rand < 0.5):
-                x = random_rotation_N_arrays(x)
-                x = random_translation_N_array(x, 5)
-                # img, calcium_img = random_rotation_twoarrays(img, calcium_img)
-                # img, calcium_img = random_translation_twoarrays(img, calcium_img, 5)
+                x = random_rotation_N_arrays(x, pad_val=augmentation_pad_val)
+                x = random_translation_N_array(x, 5, pad_val=augmentation_pad_val)
 
         x = x.astype('float32')
         y = np.array([self.gt_val[index]])
