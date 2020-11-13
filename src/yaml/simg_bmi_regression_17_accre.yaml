@@ -3,7 +3,7 @@
 # add_valid_mask_map = True
 # apply_valid_mask = True (tested in another test)
 
-# Add intensity
+# Add intensity, don't apply valid mask
 task: 'BMI'
 exp_dir: '/proj_root/output/simg_bmi_regression_17'
 input_img_dir: '/proj_root/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
@@ -25,7 +25,7 @@ fcnum: 1536
 networkName: 'resnet34'
 label_csv: '/proj_root/clinical/label_full_combined.csv'
 train_file_list_txt: '/proj_root/file_lists/complete_list'
-add_intensity_map: False
+add_intensity_map: True
 add_jacobian_map: True
 add_valid_mask_map: True
 apply_valid_mask: False # If true, set the value outside the mask to -255

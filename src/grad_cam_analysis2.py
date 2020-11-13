@@ -1,15 +1,15 @@
 import os.path as osp
 import os
 import numpy as np
-from src.tools.utils import get_logger
+from tools.utils import get_logger
 import argparse
 import yaml
 import pandas as pd
-from src.tools.clinical import ClinicalDataReaderSPORE
+from tools.clinical import ClinicalDataReaderSPORE
 import nibabel as nib
-from src.tools.data_io import ScanWrapper
+from tools.data_io import ScanWrapper
 from sklearn.metrics import roc_curve
-from src.tools.utils import mkdir_p
+from tools.utils import mkdir_p
 
 
 logger = get_logger('grad_cam_analysis')
@@ -149,10 +149,10 @@ mkdir_p(cam_foldr)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_12_nfs.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_0_cam.yaml')
     args = parser.parse_args()
 
-    SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'
+    SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'
     yaml_config = os.path.join(SRC_ROOT, f'src/yaml/{args.yaml_config}')
     logger.info(f'Read yaml file {yaml_config}')
     f = open(yaml_config, 'r').read()
@@ -162,8 +162,8 @@ def main():
     exp_dir = config['exp_dir']
 
     file_path_list_array = []
-    for idx_fold in range(num_fold):
-    # for idx_fold in range(0, 1):
+    # for idx_fold in range(num_fold):
+    for idx_fold in range(0, 1):
         pred_result_csv = osp.join(exp_dir, f'fold_{idx_fold}/test/predict.csv')
         cam_folder = osp.join(exp_dir, f'fold_{idx_fold}/grad_CAM/test.layer2')
         pred_result_df = pd.read_csv(pred_result_csv, index_col=False)

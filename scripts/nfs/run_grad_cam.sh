@@ -19,7 +19,16 @@ get_cam() {
     set +o xtrace
 }
 
-for idx in {0..4}
-do
-    get_cam ${idx}
-done
+get_average() {
+    set -o xtrace
+    ${PYTHON_ENV} ${SRC_ROOT}/src/grad_cam_analysis2.py \
+        --yaml-config ${config_file}
+    set +o xtrace
+}
+
+#for idx in {0..4}
+#do
+#    get_cam ${idx}
+#done
+
+get_average
