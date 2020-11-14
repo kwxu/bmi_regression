@@ -14,7 +14,7 @@ train_model () {
                   --yaml-config ${yaml_config} \
                   --run-train "False" \
                   --run-test "True" \
-                  --run-grad-cam "False" \
+                  --run-grad-cam "True" \
                   --train-fold -1
     set +o xtrace
 }

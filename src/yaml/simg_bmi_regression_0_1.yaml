@@ -1,0 +1,42 @@
+# Reformulate the preprocess
+# 1. resample to make sure voxel have same physical dimension.
+# 2. pad to the same size
+# 3. resample to same dimension
+task: 'BMI'
+exp_dir: '/proj_root/output/simg_bmi_regression_0_1'
+input_img_dir: '/proj_root/data/s16_riqiang_resample'
+input_jac_dir: '/proj_root/data/atlas/jac/s1_resampled'
+input_valid_mask_dir: '/proj_root/data/atlas/valid_region/s2_atlas_ori_valid_region'
+learning_rate: 0.00001   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet34'
+label_csv: '/proj_root/clinical/label_full_combined.csv'
+train_file_list_txt: '/proj_root/file_lists/complete_list'
+add_intensity_map: True
+add_jacobian_map: False
+add_valid_mask_map: False
+apply_valid_mask: False # If true, set the value outside the mask to -255
+data_augmentation: True
+img_max: 600
+img_min: -1000
+jac_max: 10
+jac_min: -5
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50
+gcam_target_layer: layer2

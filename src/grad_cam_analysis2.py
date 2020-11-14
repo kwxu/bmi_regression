@@ -162,8 +162,8 @@ def main():
     exp_dir = config['exp_dir']
 
     file_path_list_array = []
-    # for idx_fold in range(num_fold):
-    for idx_fold in range(0, 1):
+    for idx_fold in range(num_fold):
+    # for idx_fold in range(0, 1):
         pred_result_csv = osp.join(exp_dir, f'fold_{idx_fold}/test/predict.csv')
         cam_folder = osp.join(exp_dir, f'fold_{idx_fold}/grad_CAM/test.layer2')
         pred_result_df = pd.read_csv(pred_result_csv, index_col=False)

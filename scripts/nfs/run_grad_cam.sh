@@ -26,9 +26,9 @@ get_average() {
     set +o xtrace
 }
 
-#for idx in {0..4}
-#do
-#    get_cam ${idx}
-#done
+for idx in {0..4}
+do
+    get_cam ${idx}
+done
 
 get_average
