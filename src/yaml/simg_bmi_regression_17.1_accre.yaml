@@ -1,12 +1,16 @@
-# Test BL idea using a overlaped crop
+# Add the valid region mask as a channel
+# Introduce 2 new tag:
+# add_valid_mask_map = True
+# apply_valid_mask = True (tested in another test)
 
-# Turn off data augmentaion see if can resolve the activation on edge.
+# Add intensity, don't apply valid mask
 
+# Trun off data augmentation
 task: 'BMI'
-exp_dir: '/proj_root/output/simg_bmi_regression_15.1'
+exp_dir: '/proj_root/output/simg_bmi_regression_17.1'
 input_img_dir: '/proj_root/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
-input_jac_dir: '/proj_root/data/atlas/valid_region/s5.1_core_995_jac'
-input_valid_mask_dir: '/proj_root/data/atlas/valid_region/s4.3_core_anatomy_overlap_0.995'
+input_jac_dir: '/proj_root/data/atlas/jac/s3_resampled_altas_roi'
+input_valid_mask_dir: '/proj_root/data/atlas/valid_region/s3_overlapped'
 learning_rate: 0.00001   #default 0.0001s
 res:
   - 192
@@ -23,10 +27,10 @@ fcnum: 1536
 networkName: 'resnet34'
 label_csv: '/proj_root/clinical/label_full_combined.csv'
 train_file_list_txt: '/proj_root/file_lists/complete_list'
-add_intensity_map: False
+add_intensity_map: True
 add_jacobian_map: True
-add_valid_mask_map: False
-apply_valid_mask: False
+add_valid_mask_map: True
+apply_valid_mask: False # If true, set the value outside the mask to -255
 data_augmentation: False
 img_max: 600
 img_min: -1000
@@ -39,4 +43,4 @@ lr_scheduler_gamma: 0.8
 fold_num: 5
 output_epoch_model: False
 no_increase_step_limit: 50
-gcam_target_layer: layer1
+gcam_target_layer: layer2

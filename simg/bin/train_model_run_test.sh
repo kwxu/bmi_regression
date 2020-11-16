@@ -19,4 +19,14 @@ train_model () {
     set +o xtrace
 }
 
+#get_average_cam () {
+#    local cam_folder=/proj_root/average_cam
+#    set -o xtrace
+#    ${PYTHON_ENV} ${SRC_ROOT}/src/grad_cam_analysis2.py \
+#        --yaml-config ${yaml_config} \
+#        --cam-folder ${cam_folder}
+#    set +o xtrace
+#}
+
 train_model
+#get_average_cam

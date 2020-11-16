@@ -49,6 +49,12 @@ def get_data_dict(config, file_list_txt):
         valid_mask_path_list = in_valid_mask_folder_obj.get_file_path_list()
         data_dict['valid_masks'] = valid_mask_path_list
 
+    if config['add_d_index_map']:
+        in_d_index_map_folder = config['input_d_index_dir']
+        in_d_index_map_folder_obj = DataFolder(in_d_index_map_folder, file_list_with_valid_label)
+        d_index_map_path_list = in_d_index_map_folder_obj.get_file_path_list()
+        data_dict['d_index_maps'] = d_index_map_path_list
+
     return data_dict
 
 

@@ -18,11 +18,11 @@ logger = get_logger('train_n_fold')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_15.1_nfs.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_17.2_nfs.yaml')
     parser.add_argument('--run-train', type=str, default='True')
     parser.add_argument('--run-test', type=str, default='False')
     parser.add_argument('--run-grad-cam', type=str, default='False')
-    parser.add_argument('--train-fold', type=int, default=0)
+    parser.add_argument('--train-fold', type=int, default=-1)
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'

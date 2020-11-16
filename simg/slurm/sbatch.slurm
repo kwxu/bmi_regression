@@ -6,7 +6,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --ntasks=1
 #SBATCH --time=20:00:00
-#SBATCH --mem=12G
+#SBATCH --mem=20G
 
 SIMG_PATH=/scratch/xuk9/singularity/thorax_combine_20201022.img
 BIN_EXTERNAL=/home/xuk9/src/bmi_regression/simg/bin

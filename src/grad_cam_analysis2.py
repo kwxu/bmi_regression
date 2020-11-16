@@ -143,14 +143,17 @@ def save_average(cam_list_dict, out_folder):
         # get_average_map(file_path_list, out_file)
 
 
-cam_foldr = '/nfs/masi/xuk9/SPORE/CAC_class/average_cam'
-mkdir_p(cam_foldr)
+cam_folder_nfs = '/nfs/masi/xuk9/SPORE/CAC_class/average_cam'
+
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_0_cam.yaml')
+    parser.add_argument('--cam-folder', type=str, default=cam_folder_nfs)
     args = parser.parse_args()
+
+    mkdir_p(args.cam_folder)
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'
     yaml_config = os.path.join(SRC_ROOT, f'src/yaml/{args.yaml_config}')
@@ -160,12 +163,14 @@ def main():
 
     num_fold = config['fold_num']
     exp_dir = config['exp_dir']
+    layer_flag = config['gcam_target_layer']
 
     file_path_list_array = []
     for idx_fold in range(num_fold):
     # for idx_fold in range(0, 1):
         pred_result_csv = osp.join(exp_dir, f'fold_{idx_fold}/test/predict.csv')
-        cam_folder = osp.join(exp_dir, f'fold_{idx_fold}/grad_CAM/test.layer2')
+        cam_folder = osp.join(exp_dir, f'fold_{idx_fold}/grad_CAM/test.{layer_flag}')
+        mkdir_p(cam_folder)
         pred_result_df = pd.read_csv(pred_result_csv, index_col=False)
         file_list = pred_result_df['file_name']
         file_path_list = [osp.join(cam_folder, file_name)
@@ -178,7 +183,7 @@ def main():
     # cam_analysis_folder = osp.join(exp_dir, f'cam_analysis')
     # mkdir_p(cam_analysis_folder)
     # out_average_path = osp.join(cam_analysis_folder, 'averaged_all.nii.gz')
-    out_average_path = osp.join(cam_foldr, f'{args.yaml_config}.nii.gz')
+    out_average_path = osp.join(args.cam_folder, f'{args.yaml_config}.{layer_flag}.nii.gz')
     get_average_map(file_path_list_array, out_average_path)
 
     #

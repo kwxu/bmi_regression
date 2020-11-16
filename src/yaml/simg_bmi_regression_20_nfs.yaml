@@ -1,0 +1,52 @@
+# Add the valid region mask as a channel
+# Introduce 2 new tag:
+# add_valid_mask_map = True
+# apply_valid_mask = True (tested in another test)
+
+# Add intensity, don't apply valid mask
+
+# Add deformation index (TODO)
+
+# Trun off data augmentation
+task: 'BMI'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_20'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/ori/s6_resampled_full_atlas_roi_no_nan'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s3_resampled_altas_roi'
+input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s3_overlapped'
+input_d_index_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/d_index/s1_resampled'
+learning_rate: 0.00001   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet34'
+label_csv: '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
+train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/complete_list'
+add_intensity_map: True
+add_jacobian_map: True
+add_valid_mask_map: True
+add_d_index_map: True
+apply_valid_mask: False # If true, set the value outside the mask to -255
+data_augmentation: True
+img_max: 600
+img_min: -1000
+jac_max: 10
+jac_min: -5
+d_index_max: 5
+d_index_min: 0
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50
+gcam_target_layer: layer2
