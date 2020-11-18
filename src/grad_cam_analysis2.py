@@ -149,7 +149,7 @@ cam_folder_nfs = '/nfs/masi/xuk9/SPORE/CAC_class/average_cam'
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_0_cam.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_17.3_nfs.yaml')
     parser.add_argument('--cam-folder', type=str, default=cam_folder_nfs)
     args = parser.parse_args()
 

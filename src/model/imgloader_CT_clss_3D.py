@@ -107,7 +107,7 @@ class pytorch_loader_clss3D(data.Dataset):
             img_obj = nib.load(in_file)
             mask_data = img_obj.get_data()
             mask_data = np.transpose(mask_data, (2, 0, 1))
-            ambient_val = -255
+            ambient_val = 0
             augmentation_pad_val = ambient_val
             x = apply_valid_region_mask(x, mask_data, ambient_val)
 

@@ -67,6 +67,16 @@ def plot_cv_roc(performance_array, png_path):
     plt.close()
 
 
+def plot_prediction_scatter(pred_df, out_png):
+    pred = pred_df['pred'].to_numpy()
+    label = pred_df['target'].to_numpy()
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+
+    ax.plot(label, pred)
+
+
+
 def plot_class_pred(pred_df, out_png):
     # print(pred_df.label.to_list())
     gt_true_df = pred_df[pred_df.label]
