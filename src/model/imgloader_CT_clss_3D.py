@@ -43,6 +43,12 @@ class pytorch_loader_clss3D(data.Dataset):
         if self.add_d_index_mask:
             self.d_index_masks = subdict['d_index_maps']
 
+        self.add_jac_elem_maps = config['add_jac_elem_maps']
+        if self.add_jac_elem_maps:
+            self.jac_elem_maps = []
+            for idx_elem in range(9):
+                self.jac_elem_maps.append(subdict[f'jac_elem_{idx_elem}_map'])
+
         self.config = config
 
     @staticmethod
@@ -99,6 +105,11 @@ class pytorch_loader_clss3D(data.Dataset):
         if self.add_valid_mask:
             in_file = self.valid_masks[index]
             x = add_channel(x, in_file, None, None)
+
+        if self.add_jac_elem_maps:
+            for idx_elem in range(9):
+                in_file = self.jac_elem_maps[idx_elem][index]
+                x = add_channel(x, in_file, 'jac_elem_max', 'jac_elem_min')
 
         augmentation_pad_val = 0
 

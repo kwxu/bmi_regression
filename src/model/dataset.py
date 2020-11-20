@@ -55,6 +55,14 @@ def get_data_dict(config, file_list_txt):
         d_index_map_path_list = in_d_index_map_folder_obj.get_file_path_list()
         data_dict['d_index_maps'] = d_index_map_path_list
 
+    if config['add_jac_elem_maps']:
+        in_jac_elem_folder = config['input_jac_elem_dir']
+        in_jac_elem_folder_obj = DataFolder(in_jac_elem_folder, file_list_with_valid_label)
+        for idx_elem in range(9):
+            in_jac_elem_path_list = [map_path.replace('.nii.gz', f'_{idx_elem}.nii.gz')
+                                     for map_path in in_jac_elem_folder_obj.get_file_path_list()]
+            data_dict[f'jac_elem_{idx_elem}_map'] = in_jac_elem_path_list
+
     return data_dict
 
 

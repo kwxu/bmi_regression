@@ -1,0 +1,47 @@
+# Apply the intersection mask of body mask and valid region mask.
+
+
+task: 'BMI'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_21.1'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6.1_int'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6.2_jac'
+input_jac_elem_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac_elem/s1.2_jac_elem_bodymask'
+input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6_body_mask_intersect'
+input_d_index_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/d_index/s1_resampled'
+learning_rate: 0.00001   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet34'
+label_csv: '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
+train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/complete_list'
+add_intensity_map: False
+add_jacobian_map: False
+add_valid_mask_map: False
+add_d_index_map: False
+add_jac_elem_maps: True
+apply_valid_mask: False
+data_augmentation: True
+img_max: 600
+img_min: -1000
+jac_max: 1.5
+jac_min: -1.5
+jac_elem_max: 4
+jac_elem_min: -4
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50
+gcam_target_layer: layer2
