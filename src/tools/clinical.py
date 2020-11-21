@@ -128,6 +128,75 @@ class ClinicalDataReaderSPORE:
         print(count_df)
         print(f'Missing: {num_missing} ({num_missing * 100 / sample_size} %)')
 
+    def get_value_list(self, attr_flag, file_name_list):
+        print(f'Get value list of {attr_flag}')
+        print(f'Number of consider files: {len(file_name_list)}')
+
+        file_name_without_ext = [
+            file_name.replace('.nii.gz', '')
+            for file_name in file_name_list
+        ]
+        used_df = self._df.loc[file_name_without_ext]
+
+        value_list = used_df[attr_flag].to_list()
+        return value_list
+
+    def temporal_consistency_check(self, attr_flag, file_name_list):
+        # Target:
+        # 1. report how many subject with multiple sessions.
+        # 2. Get the inconsistency score for each session belongs to subject with multiple sessions.
+
+        # Filter out the rows match with the input file_name_list
+        file_name_without_ext = [
+            file_name.replace('.nii.gz', '')
+            for file_name in file_name_list
+        ]
+        used_df = self._df.loc[file_name_without_ext]
+        # print(len(used_df))
+
+        subj_id_list = [
+            ClinicalDataReaderSPORE._get_subject_id_from_file_name(file_name)
+            for file_name in file_name_list
+        ]
+
+        subj_id_list_unique = list(set(subj_id_list))
+
+        count_num_multi_sess = 0
+        inconsistency_data_dict = {}
+
+        for subj_id in subj_id_list_unique:
+            indices = [idx for idx, id in enumerate(subj_id_list) if id == subj_id]
+            if len(indices) > 1:
+                count_num_multi_sess += 1
+                subj_sess_idx_list = [
+                    file_name_without_ext[idx_sess]
+                    for idx_sess in indices
+                ]
+                subj_df = used_df.loc[subj_sess_idx_list]
+                attr_list = subj_df[attr_flag].to_list()
+
+                for idx_sess in range(len(subj_sess_idx_list)):
+                    sess_name = subj_sess_idx_list[idx_sess]
+                    sess_value = attr_list[idx_sess]
+
+                    abs_shift = np.abs(np.array(attr_list) - sess_value)
+                    sorted_abs_shift = np.sort(abs_shift)
+
+                    in_consistency_score = sorted_abs_shift[1]
+                    inconsistency_data_dict[sess_name] = {
+                        'subj_id': subj_id,
+                        'value': sess_value,
+                        'inconsistent_score': in_consistency_score
+                    }
+
+        print(f'Analysis the temporal consistency of attribute {attr_flag}')
+        print(f'Number of scans {len(used_df)}')
+        print(f'Number of subjects {len(subj_id_list_unique)}')
+        print(f'Number of subjects with longitudinal {count_num_multi_sess}')
+        print(f'Number of longitudinal sessions {len(inconsistency_data_dict)}')
+
+        return inconsistency_data_dict
+
     def get_attributes_from_original_label_file(self, df_ori, attribute):
         logger.info(f'Add attribute {attribute} from ori df')
         attribute_val_list = []
@@ -525,6 +594,37 @@ class ClinicalDataReaderSPORE:
     @staticmethod
     def _get_name_field_flat_from_sub_id(sub_id):
         return f'SPORE_{sub_id:08}'
+
+    @staticmethod
+    def _get_longitudinal_sess_list(sess_list):
+        long_sess_list = []
+
+        subj_id_list = [
+            ClinicalDataReaderSPORE._get_subject_id_from_sess_name(sess_name)
+            for sess_name in sess_list
+        ]
+
+        subj_id_list_unique = list(set(subj_id_list))
+        for subj_id in subj_id_list_unique:
+            subj_sess_idx_list = [idx for idx, id in enumerate(subj_id_list) if id == subj_id]
+            if len(subj_sess_idx_list) > 1:
+                for sess_idx in subj_sess_idx_list:
+                    long_sess_list.append(sess_list[sess_idx])
+
+        print(f'Get longitudinal sessions')
+        print(f'# input sessions: {len(sess_list)}')
+        print(f'# output longitudinal sessions: {len(long_sess_list)}')
+
+        return long_sess_list
+
+    @staticmethod
+    def _get_subj_list_from_sess_list(sess_list):
+        subj_list = list(set([
+            ClinicalDataReaderSPORE._get_subject_id_from_sess_name(sess_name)
+            for sess_name in sess_list
+        ]))
+
+        return subj_list
 
     @staticmethod
     def create_spore_data_reader_xlsx(file_xlsx):
