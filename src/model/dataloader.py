@@ -2,7 +2,7 @@ from model.imgloader_CT_clss_3D import pytorch_loader_clss3D
 from torch.utils.data import DataLoader
 from model.dataset import get_train_data_dict
 import os
-from tools.cross_validation import get_idx_list_array_n_fold_regression_bl
+from tools.cross_validation import get_idx_list_array_bmi_session_level_split
 import numpy as np
 
 
@@ -15,8 +15,12 @@ def get_data_loader_cv(config):
     train_valid_data_dict = get_train_data_dict(config)
     train_valid_file_name_list = [os.path.basename(file_path) for file_path in train_valid_data_dict['img_files']]
 
+    # fold_train_idx_list_array, fold_validate_idx_list_array, fold_test_idx_list_array = \
+    #     get_idx_list_array_n_fold_regression_bl(train_valid_file_name_list, fold_num)
+
+    bmi_list = train_valid_data_dict['gt_val']
     fold_train_idx_list_array, fold_validate_idx_list_array, fold_test_idx_list_array = \
-        get_idx_list_array_n_fold_regression_bl(train_valid_file_name_list, fold_num)
+        get_idx_list_array_bmi_session_level_split(bmi_list, fold_num)
 
     def create_data_loader_list(fold_idx_list_array, shuffle):
         data_loader_list = []

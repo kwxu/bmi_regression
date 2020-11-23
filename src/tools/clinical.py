@@ -141,6 +141,60 @@ class ClinicalDataReaderSPORE:
         value_list = used_df[attr_flag].to_list()
         return value_list
 
+    def temporal_consistency_check_using_raw_label(self, attr_flag, long_data_dict_list, file_name_list):
+        file_name_without_ext = [
+            file_name.replace('.nii.gz', '')
+            for file_name in file_name_list
+        ]
+        used_df = self._df.loc[file_name_without_ext]
+
+        subj_id_list = [
+            ClinicalDataReaderSPORE._get_subject_id_from_file_name(file_name)
+            for file_name in file_name_list
+        ]
+
+        subj_id_list_unique = list(set(subj_id_list))
+
+        count_num_multi_sess = 0
+        inconsistency_data_dict = {}
+
+        for subj_id in subj_id_list_unique:
+            indices = [idx for idx, id in enumerate(subj_id_list) if id == subj_id]
+            subj_id_spore_format = f'SPORE_{subj_id:08d}'
+            if subj_id_spore_format in long_data_dict_list:
+                count_num_multi_sess += 1
+                subj_sess_idx_list = [
+                    file_name_without_ext[idx_sess]
+                    for idx_sess in indices
+                ]
+                subj_df = used_df.loc[subj_sess_idx_list]
+                attr_list = subj_df[attr_flag].to_list()
+
+                attr_raw_label_list = long_data_dict_list[subj_id_spore_format][attr_flag]
+
+                for idx_sess in range(len(subj_sess_idx_list)):
+                    sess_name = subj_sess_idx_list[idx_sess]
+                    sess_value = attr_list[idx_sess]
+
+                    # abs_shift = np.abs(np.array(attr_list) - sess_value)
+                    abs_shift = np.abs(attr_raw_label_list - sess_value)
+                    sorted_abs_shift = np.sort(abs_shift)
+
+                    in_consistency_score = sorted_abs_shift[1]
+                    inconsistency_data_dict[sess_name] = {
+                        'subj_id': subj_id,
+                        'value': sess_value,
+                        'inconsistent_score': in_consistency_score
+                    }
+
+        print(f'Analysis the temporal consistency of attribute {attr_flag}')
+        print(f'Number of scans {len(used_df)}')
+        print(f'Number of subjects {len(subj_id_list_unique)}')
+        print(f'Number of subjects with longitudinal {count_num_multi_sess}')
+        print(f'Number of longitudinal sessions {len(inconsistency_data_dict)}')
+
+        return inconsistency_data_dict
+
     def temporal_consistency_check(self, attr_flag, file_name_list):
         # Target:
         # 1. report how many subject with multiple sessions.
@@ -586,8 +640,8 @@ class ClinicalDataReaderSPORE:
         return subject_id
 
     @staticmethod
-    def _get_subject_id_from_sess_name(sess_list):
-        match_list = re.match(r"(?P<subject_id>\d+)time(?P<time_id>\d+)", sess_list)
+    def _get_subject_id_from_sess_name(sess_name):
+        match_list = re.match(r"(?P<subject_id>\d+)time(?P<time_id>\d+)", sess_name)
         subject_id = int(match_list.group('subject_id'))
         return subject_id
 
