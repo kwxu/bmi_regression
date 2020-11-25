@@ -29,19 +29,20 @@ def main():
         test_bmi_list_array.append(test_bmi_list)
 
     out_png = os.path.join(out_folder, 'fold_distribution.png')
-    fig, ax = plt.subplots(figsize=(18, 12))
+    fig, ax = plt.subplots(figsize=(10, 7))
     ax.hist(
         test_bmi_list_array,
         bins=5,
         label=[f'fold-{idx}' for idx in range(5)],
         alpha=0.7,
         rwidth=0.8,
-        density=True
+        density=False
     )
     ax.legend(loc='best')
     plt.grid(axis='y', alpha=0.8)
     plt.xlabel('BMI')
-    plt.ylabel('Density (Count / Total)')
+    # plt.ylabel('Density (Count / Total)')
+    plt.ylabel('Count')
 
     print(f'Save image to {out_png}')
     plt.savefig(out_png, bbox_inches='tight', pad_inches=0.1)

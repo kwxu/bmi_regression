@@ -3,7 +3,7 @@ import numpy as np
 import argparse
 import os
 import os.path as osp
-from src.tools.utils import get_logger
+from src.tools.utils import get_logger, read_file_contents_list
 import yaml
 from sklearn.metrics import mean_squared_error
 from math import sqrt
@@ -128,12 +128,15 @@ def analyze_top_error_cases(exp_dir):
 
 # yaml_config_name1 = 'simg_bmi_regression_3.6_nfs.yaml'
 # yaml_config_name2 = 'simg_bmi_regression_0_1_nfs.yaml'
-yaml_config_name3 = 'simg_bmi_regression_0_2.yaml'
+# yaml_config_name3 = 'simg_bmi_regression_0_2.yaml'
+# yaml_config_name = 'simg_bmi_regression_0_3_nfs.yaml'
+yaml_config_name = 'simg_bmi_regression_3.6.3_nfs.yaml'
+
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default=yaml_config_name3)
+    parser.add_argument('--yaml-config', type=str, default=yaml_config_name)
     args = parser.parse_args()
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'
@@ -147,6 +150,7 @@ def main():
 
     get_data(exp_dir, num_fold)
     analyze_top_error_cases(exp_dir)
+
 
 
 

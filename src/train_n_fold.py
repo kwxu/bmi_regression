@@ -18,7 +18,7 @@ logger = get_logger('train_n_fold')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_0_3_nfs.yaml')
+    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_21.1_nfs.yaml')
     parser.add_argument('--run-train', type=str, default='True')
     parser.add_argument('--run-test', type=str, default='False')
     parser.add_argument('--run-grad-cam', type=str, default='False')

@@ -1,6 +1,10 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
+from tools.data_io import ScanWrapper
+from matplotlib import colors
+import os
+from tools.utils import mkdir_p
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 def plot_training_curve(data_dict, out_png):
@@ -115,3 +119,211 @@ def plot_class_pred(pred_df, out_png):
     print(f'Save png to {out_png}')
     plt.savefig(out_png, bbox_inches='tight', pad_inches=0.1)
     plt.close()
+
+
+class ClipPlotSeriesWithBack:
+    def __init__(self,
+                 in_img_path,
+                 in_mask_path,
+                 in_back_img_path,
+                 step_axial,
+                 step_sagittal,
+                 step_coronal,
+                 num_clip,
+                 vmin, vmax,
+                 vmin_back, vmax_back,
+                 unit_label):
+        self._in_img_path = in_img_path
+        self._in_img_name_no_ext = os.path.basename(self._in_img_path)
+        self._in_mask_path = in_mask_path
+        self._in_back_img_path = in_back_img_path
+        self._step_axial = step_axial
+        self._step_sagittal = step_sagittal
+        self._step_coronal = step_coronal
+        self._num_clip = num_clip
+        self._vmin = vmin
+        self._vmax = vmax
+        self._vmin_back = vmin_back
+        self._vmax_back = vmax_back
+        self._sub_title_font_size = 70
+        self._unit_label = unit_label
+
+    def clip_plot_3_view(self, out_png_folder):
+        in_img_obj = ScanWrapper(self._in_img_path)
+        in_mask_obj = ScanWrapper(self._in_mask_path)
+
+        in_img_data = in_img_obj.get_data()
+        in_mask_data = in_mask_obj.get_data()
+
+        masked_img_data = np.zeros(in_img_data.shape, dtype=float)
+        masked_img_data.fill(np.nan)
+        masked_img_data[in_mask_data == 1] = in_img_data[in_mask_data == 1]
+
+    def clip_plot_img_only(self, out_png_folder):
+        in_img_obj = ScanWrapper(self._in_img_path)
+        in_img_data = in_img_obj.get_data()
+        masked_img_data = None
+        if self._in_mask_path is not None:
+            in_mask_obj = ScanWrapper(self._in_mask_path)
+            in_mask_data = in_mask_obj.get_data()
+
+            masked_img_data = np.zeros(in_img_data.shape, dtype=float)
+            masked_img_data.fill(np.nan)
+            masked_img_data[in_mask_data == 1] = in_img_data[in_mask_data == 1]
+
+        else:
+            masked_img_data = in_img_data
+
+        self._plot_view(
+            self._num_clip,
+            self._step_axial,
+            masked_img_data,
+            None,
+            'axial',
+            out_png_folder,
+            1
+        )
+
+        # self._plot_view(
+        #     self._num_clip,
+        #     self._step_sagittal,
+        #     masked_img_data,
+        #     None,
+        #     'sagittal',
+        #     out_png_folder,
+        #     5.23438 / 2.28335
+        # )
+        #
+        # self._plot_view(
+        #     self._num_clip,
+        #     self._step_coronal,
+        #     masked_img_data,
+        #     None,
+        #     'coronal',
+        #     out_png_folder,
+        #     5.23438 / 2.17388
+        # )
+
+    def clip_plot(self, out_png_folder):
+        in_img_obj = ScanWrapper(self._in_img_path)
+        in_back_obj = ScanWrapper(self._in_back_img_path)
+
+        in_img_data = in_img_obj.get_data()
+        in_back_data = in_back_obj.get_data()
+
+        masked_img_data = None
+        masked_back_data = None
+
+        if self._in_mask_path is not None:
+            in_mask_obj = ScanWrapper(self._in_mask_path)
+            in_mask_data = in_mask_obj.get_data()
+
+            masked_img_data = np.zeros(in_img_data.shape, dtype=float)
+            masked_img_data.fill(np.nan)
+            masked_img_data[in_mask_data == 1] = in_img_data[in_mask_data == 1]
+
+            masked_back_data = np.zeros(in_back_data.shape, dtype=float)
+            masked_back_data.fill(np.nan)
+            masked_back_data[in_mask_data == 1] = in_back_data[in_mask_data == 1]
+        else:
+            masked_img_data = in_img_data
+            masked_back_data = in_back_data
+
+        self._plot_view(
+            self._num_clip,
+            self._step_axial,
+            masked_img_data,
+            masked_back_data,
+            'axial',
+            out_png_folder,
+            1
+        )
+
+        self._plot_view(
+            self._num_clip,
+            self._step_sagittal,
+            masked_img_data,
+            masked_back_data,
+            'sagittal',
+            out_png_folder,
+            5.23438 / 2.28335
+        )
+
+        self._plot_view(
+            self._num_clip,
+            self._step_coronal,
+            masked_img_data,
+            masked_back_data,
+            'coronal',
+            out_png_folder,
+            5.23438 / 2.17388
+        )
+
+    def _plot_view(self,
+                   num_clip,
+                   step_clip,
+                   in_img_data,
+                   in_back_data,
+                   view_flag,
+                   out_png_folder,
+                   unit_ratio
+                   ):
+        for clip_idx in range(num_clip):
+            fig, ax = plt.subplots()
+            plt.axis('off')
+
+            clip_off_set = (clip_idx - 2) * step_clip
+
+            if in_back_data is not None:
+                back_slice = self._clip_image(in_back_data, view_flag, clip_off_set)
+                im_back = ax.imshow(
+                    back_slice,
+                    interpolation='none',
+                    cmap='gray',
+                    norm=colors.Normalize(vmin=self._vmin_back, vmax=self._vmax_back),
+                    alpha=0.7
+                )
+
+            img_slice = self._clip_image(in_img_data, view_flag, clip_off_set)
+            im = ax.imshow(
+                img_slice,
+                interpolation='none',
+                cmap='jet',
+                norm=colors.Normalize(vmin=self._vmin, vmax=self._vmax),
+                alpha=0.5
+            )
+
+            ax.set_aspect(unit_ratio)
+
+            if self._unit_label is not None:
+                divider = make_axes_locatable(ax)
+                cax = divider.append_axes("right", size="5%", pad=0.05/unit_ratio)
+
+                cb = plt.colorbar(im, cax=cax)
+                cb.set_label(self._unit_label)
+
+            view_root = os.path.join(out_png_folder, f'{view_flag}')
+            mkdir_p(view_root)
+            out_png_path = os.path.join(view_root, f'{self._in_img_name_no_ext}_{clip_idx}.png')
+            print(f'Save overlay png to {out_png_path}')
+            plt.savefig(out_png_path, bbox_inches='tight', pad_inches=0)
+            plt.close()
+
+    @staticmethod
+    def _clip_image(image_data, clip_plane, offset=0):
+        im_shape = image_data.shape
+        clip = None
+        if clip_plane == 'sagittal':
+            clip = image_data[int(im_shape[0] / 2) - 1 + offset, :, :]
+            clip = np.flip(clip, 0)
+            clip = np.rot90(clip)
+        elif clip_plane == 'coronal':
+            clip = image_data[:, int(im_shape[1] / 2) - 1 + offset, :]
+            clip = np.rot90(clip)
+        elif clip_plane == 'axial':
+            clip = image_data[:, :, int(im_shape[2] / 2) - 1 + offset]
+            clip = np.rot90(clip)
+        else:
+            raise NotImplementedError
+
+        return clip
