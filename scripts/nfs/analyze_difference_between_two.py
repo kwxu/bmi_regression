@@ -45,9 +45,9 @@ def get_statics_subgroup(file_list_txt, in_csv):
     diff1 = study_pred1_list - study_label_list
     diff2 = study_pred2_list - study_label_list
 
-    diff1_rmse = np.sqrt(np.sum(np.abs(diff1)) / num_study_case)
+    diff1_rmse = np.sqrt(np.mean(np.power(np.abs(diff1), 2)))
     diff1_mean = np.mean(diff1)
-    diff2_rmse = np.sqrt(np.sum(np.abs(diff2)) / num_study_case)
+    diff2_rmse = np.sqrt(np.mean(np.power(np.abs(diff2), 2)))
     diff2_mean = np.mean(diff2)
 
     print(f'Diff1 RMSE: {diff1_rmse:.3f}')
@@ -59,6 +59,7 @@ def get_statics_subgroup(file_list_txt, in_csv):
 # yaml_config_name2 = 'simg_bmi_regression_3.6_nfs.yaml'
 yaml_config_name1 = 'simg_bmi_regression_0_3_nfs.yaml'
 yaml_config_name2 = 'simg_bmi_regression_3.6.3_nfs.yaml'
+# yaml_config_name2 = 'simg_bmi_regression_3.6.4_nfs.yaml'
 out_folder = f'/nfs/masi/xuk9/SPORE/CAC_class/diff_analysis/{yaml_config_name1}'
 mkdir_p(out_folder)
 # out_csv = f'/nfs/masi/xuk9/SPORE/CAC_class/diff_analysis/diff_native.csv'
@@ -73,25 +74,25 @@ def main():
     parser.add_argument('--yaml-config2', type=str, default=yaml_config_name2)
     args = parser.parse_args()
 
-    # test_1_df = get_the_total_perf_data_dict(args.yaml_config1)
-    # test_2_df = get_the_total_perf_data_dict(args.yaml_config2)
-    #
-    # data_total_dict = {
-    #     'file_name': test_1_df['file_name'].to_list(),
-    #     'label': test_1_df['label'],
-    #     'pred1': test_1_df['pred'].to_numpy(),
-    #     'pred2': test_2_df['pred'].to_numpy(),
-    #     'diff1': test_1_df['diff'].to_numpy(),
-    #     'diff2': test_2_df['diff'].to_numpy(),
-    #     'diff1_abs': test_1_df['diff_abs'].to_numpy(),
-    #     'diff2_abs': test_2_df['diff_abs'].to_numpy(),
-    #     'diff_1_2': test_1_df['pred'] - test_2_df['pred'],
-    #     'diff_abs_1_2': test_1_df['diff_abs'] - test_2_df['diff_abs']
-    # }
-    #
-    # data_total_df = pd.DataFrame(data_total_dict)
-    # print(f'Save to {out_csv}')
-    # data_total_df.to_csv(out_csv, float_format='%.3f', index=False)
+    test_1_df = get_the_total_perf_data_dict(args.yaml_config1)
+    test_2_df = get_the_total_perf_data_dict(args.yaml_config2)
+
+    data_total_dict = {
+        'file_name': test_1_df['file_name'].to_list(),
+        'label': test_1_df['label'],
+        'pred1': test_1_df['pred'].to_numpy(),
+        'pred2': test_2_df['pred'].to_numpy(),
+        'diff1': test_1_df['diff'].to_numpy(),
+        'diff2': test_2_df['diff'].to_numpy(),
+        'diff1_abs': test_1_df['diff_abs'].to_numpy(),
+        'diff2_abs': test_2_df['diff_abs'].to_numpy(),
+        'diff_1_2': test_1_df['pred'] - test_2_df['pred'],
+        'diff_abs_1_2': test_1_df['diff_abs'] - test_2_df['diff_abs']
+    }
+
+    data_total_df = pd.DataFrame(data_total_dict)
+    print(f'Save to {out_csv}')
+    data_total_df.to_csv(out_csv, float_format='%.3f', index=False)
 
     get_statics_subgroup(file_list_round_fov_txt, out_csv)
     get_statics_subgroup(file_list_normal_fov_txt, out_csv)

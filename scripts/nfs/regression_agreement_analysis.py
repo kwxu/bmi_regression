@@ -130,7 +130,8 @@ def analyze_top_error_cases(exp_dir):
 # yaml_config_name2 = 'simg_bmi_regression_0_1_nfs.yaml'
 # yaml_config_name3 = 'simg_bmi_regression_0_2.yaml'
 # yaml_config_name = 'simg_bmi_regression_0_3_nfs.yaml'
-yaml_config_name = 'simg_bmi_regression_3.6.3_nfs.yaml'
+# yaml_config_name = 'simg_bmi_regression_3.6.3_nfs.yaml'
+yaml_config_name = 'simg_bmi_regression_3.6.4_nfs.yaml'
 
 
 

@@ -6,6 +6,9 @@ from src.tools.plot import ClipPlotSeriesWithBack
 from src.tools.utils import read_file_contents_list, save_file_contents_list
 from src.tools.data_io import ScanWrapper
 import numpy as np
+import yaml
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 in_native_folder = '/nfs/masi/xuk9/SPORE/CAC_class/data/s14_ori_final_resample'
@@ -61,9 +64,51 @@ def get_list_round_and_normal_fov():
     save_file_contents_list(out_file_list_normal_fov, normal_list)
 
 
+in_csv_file = '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
+out_fov_type_bmi_hist_plot = '/nfs/masi/xuk9/SPORE/CAC_class/clinical/fov_type_hist.png'
+
+
+def plot_round_normal_distribution():
+    file_list_round = read_file_contents_list(out_file_list_round_fov)
+    file_list_normal = read_file_contents_list(out_file_list_normal_fov)
+
+    label_df = pd.read_csv(in_csv_file, index_col='id')
+
+    file_list_round_no_ext = [file_name.replace('.nii.gz', '') for file_name in file_list_round]
+    file_list_normal_no_ext = [file_name.replace('.nii.gz', '') for file_name in file_list_normal]
+
+    bmi_round = label_df.loc[file_list_round_no_ext]['bmi'].to_numpy()
+    bmi_normal = label_df.loc[file_list_normal_no_ext]['bmi'].to_numpy()
+
+    data_array_sequence = []
+    data_array_sequence.append(bmi_round)
+    data_array_sequence.append(bmi_normal)
+
+    f, ax = plt.subplots(figsize=(8, 6))
+    ax.hist(
+        data_array_sequence,
+        bins=10,
+        color=['r', 'b'],
+        label=[f'Round FOV ({len(bmi_round)})', f'Normal FOV ({len(bmi_normal)})'],
+        alpha=0.8,
+        rwidth=0.9,
+        density=True
+    )
+
+    ax.legend(loc='best')
+    plt.grid(axis='y', alpha=0.8)
+    plt.xlabel('BMI')
+    plt.ylabel('Density (Count / Total)')
+
+    print(f'Save image to {out_fov_type_bmi_hist_plot}')
+    plt.savefig(out_fov_type_bmi_hist_plot, bbox_inches='tight', pad_inches=0.1)
+    plt.close()
+
+
 def main():
     # axial_clip_plot_native()
-    get_list_round_and_normal_fov()
+    # get_list_round_and_normal_fov()
+    plot_round_normal_distribution()
 
 
 if __name__ == '__main__':
