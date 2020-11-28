@@ -41,7 +41,7 @@ class pytorch_loader_clss3D(data.Dataset):
             self.jacobian_maps = subdict['jacobian_maps']
 
         self.add_valid_mask = config['add_valid_mask_map']
-        if self.add_valid_mask:
+        if self.add_valid_mask | config['apply_random_valid_mask']:
             self.valid_masks = subdict['valid_masks']
 
         self.add_d_index_mask = config['add_d_index_map']
@@ -55,6 +55,8 @@ class pytorch_loader_clss3D(data.Dataset):
                 self.jac_elem_maps.append(subdict[f'jac_elem_{idx_elem}_map'])
 
         self.config = config
+
+        self.if_print_debug = False
 
     @staticmethod
     def _add_channel(x, img):
@@ -116,29 +118,51 @@ class pytorch_loader_clss3D(data.Dataset):
                 in_file = self.jac_elem_maps[idx_elem][index]
                 x = add_channel(x, in_file, 'jac_elem_max', 'jac_elem_min')
 
-        augmentation_pad_val = 0
+        augmentation_pad_val = self.config['ambient_val']
 
         if self.config['apply_valid_mask']:
             in_file = self.valid_masks[index]
             img_obj = nib.load(in_file)
             mask_data = img_obj.get_data()
             mask_data = np.transpose(mask_data, (2, 0, 1))
-            ambient_val = 0
-            augmentation_pad_val = ambient_val
-            x = apply_valid_region_mask(x, mask_data, ambient_val)
+            # ambient_val = 0
+            # augmentation_pad_val = ambient_val
+            x = apply_valid_region_mask(x, mask_data, augmentation_pad_val)
 
-        # if self.config['apply_random_valid_mask'] & (~self.suppress_data_augmentation):
-        #     random_mask_idx = randint(0, len(self.valid_masks) - 1)
-        #     in_file = self.valid_masks[random_mask_idx]
-        #     print(f'Valid mask index: {random_mask_idx}, {os.path.basename(in_file)}')
+        # Apply random mask on training phase.
+        if self.config['apply_random_valid_mask']:
+            mask_idx = index
+            if not self.suppress_data_augmentation:
+                if self.if_print_debug:
+                    print(f'Get random index for valid mask.')
+                mask_idx = randint(0, len(self.valid_masks) - 1)
+            in_file = self.valid_masks[mask_idx]
+            if self.if_print_debug:
+                print(f'Session index: {index}, {file_name}')
+                print(f'Apply valid mask index: {mask_idx}, {os.path.basename(in_file)}')
+            img_obj = nib.load(in_file)
+            mask_data = img_obj.get_data()
+            mask_data = np.transpose(mask_data, (2, 0, 1))
+            x = apply_valid_region_mask(x, mask_data, augmentation_pad_val)
 
-        if self.data_augmentation & (~self.suppress_data_augmentation):
+        if self.data_augmentation & (not self.suppress_data_augmentation):
+            if self.if_print_debug:
+                print(f'Enter data augmentation')
             rand = random.uniform(0, 1)
             if (0 <= rand < 0.5):
                 x = random_rotation_N_arrays(x, pad_val=augmentation_pad_val)
                 x = random_translation_N_array(x, 5, pad_val=augmentation_pad_val)
 
         x = x.astype('float32')
+
+        if self.if_print_debug & self.suppress_data_augmentation:
+            out_folder = '/nfs/masi/xuk9/SPORE/CAC_class/debug'
+            out_file_path = os.path.join(out_folder, file_name)
+            print(x.shape)
+            img_obj = nib.Nifti1Image(x[0], affine=None)
+            print(f'Save network input to {out_file_path}')
+            nib.save(img_obj, out_file_path)
+
         y = np.array([self.gt_val[index]])
 
         return x, y, file_name

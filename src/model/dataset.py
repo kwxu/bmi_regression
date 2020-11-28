@@ -43,7 +43,7 @@ def get_data_dict(config, file_list_txt):
         jacobian_map_path_list = in_jacobian_folder_obj.get_file_path_list()
         data_dict['jacobian_maps'] = jacobian_map_path_list
 
-    if config['add_valid_mask_map']:
+    if config['add_valid_mask_map'] | config['apply_random_valid_mask']:
         in_valid_mask_folder = config['input_valid_mask_dir']
         in_valid_mask_folder_obj = DataFolder(in_valid_mask_folder, file_list_with_valid_label)
         valid_mask_path_list = in_valid_mask_folder_obj.get_file_path_list()

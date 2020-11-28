@@ -215,25 +215,25 @@ class ClipPlotSeriesWithBack:
             1
         )
 
-        # self._plot_view(
-        #     self._num_clip,
-        #     self._step_sagittal,
-        #     masked_img_data,
-        #     None,
-        #     'sagittal',
-        #     out_png_folder,
-        #     5.23438 / 2.28335
-        # )
-        #
-        # self._plot_view(
-        #     self._num_clip,
-        #     self._step_coronal,
-        #     masked_img_data,
-        #     None,
-        #     'coronal',
-        #     out_png_folder,
-        #     5.23438 / 2.17388
-        # )
+        self._plot_view(
+            self._num_clip,
+            self._step_sagittal,
+            masked_img_data,
+            None,
+            'sagittal',
+            out_png_folder,
+            5.23438 / 2.28335
+        )
+
+        self._plot_view(
+            self._num_clip,
+            self._step_coronal,
+            masked_img_data,
+            None,
+            'coronal',
+            out_png_folder,
+            5.23438 / 2.17388
+        )
 
     def clip_plot(self, out_png_folder):
         in_img_obj = ScanWrapper(self._in_img_path)
