@@ -3,19 +3,23 @@ import numpy as np
 from torch.utils import data
 import nibabel as nib
 import random
+from random import randint
 from tools.image_manipulation import random_rotation, random_rotation_twoarrays, random_translation, random_translation_twoarrays
 from tools.image_manipulation import random_rotation_N_arrays, random_translation_N_array, apply_valid_region_mask
+
+
 # output_x = 168
 # output_y = 168
 # output_z = 64
-
 
 
 class pytorch_loader_clss3D(data.Dataset):
     def __init__(
             self,
             subdict,
-            config):
+            config,
+            suppress_data_augmentation=False
+    ):
         self.subdict = subdict
         self.img_names = subdict['img_names']
         self.img_subs = subdict['img_subs']
@@ -30,6 +34,7 @@ class pytorch_loader_clss3D(data.Dataset):
         self.img_y = imsize[1]
         self.img_z = imsize[2]
         self.data_augmentation = config['data_augmentation']
+        self.suppress_data_augmentation = suppress_data_augmentation
 
         self.add_jac_map = config['add_jacobian_map']
         if self.add_jac_map:
@@ -122,7 +127,12 @@ class pytorch_loader_clss3D(data.Dataset):
             augmentation_pad_val = ambient_val
             x = apply_valid_region_mask(x, mask_data, ambient_val)
 
-        if self.data_augmentation:
+        # if self.config['apply_random_valid_mask'] & (~self.suppress_data_augmentation):
+        #     random_mask_idx = randint(0, len(self.valid_masks) - 1)
+        #     in_file = self.valid_masks[random_mask_idx]
+        #     print(f'Valid mask index: {random_mask_idx}, {os.path.basename(in_file)}')
+
+        if self.data_augmentation & (~self.suppress_data_augmentation):
             rand = random.uniform(0, 1)
             if (0 <= rand < 0.5):
                 x = random_rotation_N_arrays(x, pad_val=augmentation_pad_val)

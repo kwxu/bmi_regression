@@ -22,7 +22,7 @@ def get_data_loader_cv(config):
     fold_train_idx_list_array, fold_validate_idx_list_array, fold_test_idx_list_array = \
         get_idx_list_array_bmi_session_level_split(bmi_list, fold_num)
 
-    def create_data_loader_list(fold_idx_list_array, shuffle):
+    def create_data_loader_list(fold_idx_list_array, shuffle, suppress_aug):
         data_loader_list = []
         for idx_fold in range(fold_num):
             fold_idx_list = fold_idx_list_array[idx_fold]
@@ -32,7 +32,8 @@ def get_data_loader_cv(config):
 
             data_set = pytorch_loader_clss3D(
                 data_dict,
-                config
+                config,
+                suppress_data_augmentation=suppress_aug
             )
 
             print(f'Demographic of fold {idx_fold}:')
@@ -51,9 +52,9 @@ def get_data_loader_cv(config):
 
         return data_loader_list
 
-    train_data_loader_list = create_data_loader_list(fold_train_idx_list_array, True)
-    validate_data_loader_list = create_data_loader_list(fold_validate_idx_list_array, False)
-    test_data_loader_list = create_data_loader_list(fold_test_idx_list_array, False)
+    train_data_loader_list = create_data_loader_list(fold_train_idx_list_array, True, False)
+    validate_data_loader_list = create_data_loader_list(fold_validate_idx_list_array, False, True)
+    test_data_loader_list = create_data_loader_list(fold_test_idx_list_array, False, True)
 
     return train_data_loader_list, validate_data_loader_list, test_data_loader_list
 

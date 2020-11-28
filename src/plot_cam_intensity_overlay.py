@@ -17,7 +17,8 @@ atlas_intensity_folder = '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region
 
 
 def main():
-    yaml_config = 'simg_bmi_regression_3.6.3_nfs.yaml'
+    # yaml_config = 'simg_bmi_regression_3.6.3_nfs.yaml'
+    yaml_config = 'simg_bmi_regression_3.6.4_nfs.yaml'
 
     SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/..'
     yaml_config = os.path.join(SRC_ROOT, f'src/yaml/{yaml_config}')

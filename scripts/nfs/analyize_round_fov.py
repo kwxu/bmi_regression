@@ -3,12 +3,17 @@ import os.path as osp
 from src.tools.utils import get_logger
 from tools.utils import mkdir_p
 from src.tools.plot import ClipPlotSeriesWithBack
-from src.tools.utils import read_file_contents_list, save_file_contents_list
+from src.tools.utils import read_file_contents_list, save_file_contents_list, get_logger
 from src.tools.data_io import ScanWrapper
 import numpy as np
 import yaml
 import pandas as pd
 import matplotlib.pyplot as plt
+import yaml
+from tools.plot import mean_diff_plot, scatter_plot
+
+
+logger = get_logger('Analyze Round FOV')
 
 
 in_native_folder = '/nfs/masi/xuk9/SPORE/CAC_class/data/s14_ori_final_resample'
@@ -105,10 +110,48 @@ def plot_round_normal_distribution():
     plt.close()
 
 
+def plot_round_fov_output(yaml_config):
+    """
+    Get the output plot on round fov cases. Run regression_agreement_analysis before this.
+    :param yaml_config:
+    :return:
+    """
+    SRC_ROOT = os.path.dirname(os.path.realpath(__file__)) + '/../..'
+    yaml_config = os.path.join(SRC_ROOT, f'src/yaml/{yaml_config}')
+    logger.info(f'Read yaml file {yaml_config}')
+    f = open(yaml_config, 'r').read()
+    config = yaml.safe_load(f)
+
+    # num_fold = config['fold_num']
+    exp_dir = config['exp_dir']
+
+    in_csv = os.path.join(exp_dir, 'pred_total.csv')
+    data_df = pd.read_csv(in_csv, index_col='file_name')
+
+    round_fov_file_list = read_file_contents_list(out_file_list_round_fov)
+    round_fov_df = data_df.loc[round_fov_file_list]
+
+    round_fov_pred_list = round_fov_df['pred'].to_numpy()
+    round_fov_label_list = round_fov_df['label'].to_numpy()
+
+    out_mean_diff_png = os.path.join(exp_dir, 'round_fov_mean_diff.png')
+    out_scatter_png = os.path.join(exp_dir, 'round_fov_scatter.png')
+
+    mean_diff_plot(round_fov_pred_list, round_fov_label_list, np.array([0]), out_mean_diff_png)
+    scatter_plot(round_fov_pred_list, round_fov_label_list, np.array([0]), out_scatter_png)
+
+    out_pred_csv = os.path.join(exp_dir, 'pred_total_round_fov.csv')
+    round_fov_df.to_csv(out_pred_csv)
+
+
 def main():
     # axial_clip_plot_native()
     # get_list_round_and_normal_fov()
-    plot_round_normal_distribution()
+    # plot_round_normal_distribution()
+
+    # yaml_config = 'simg_bmi_regression_3.6.4_nfs.yaml'
+    yaml_config = 'simg_bmi_regression_3.6.3_nfs.yaml'
+    plot_round_fov_output(yaml_config)
 
 
 if __name__ == '__main__':

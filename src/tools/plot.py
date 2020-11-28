@@ -3,8 +3,39 @@ import numpy as np
 from tools.data_io import ScanWrapper
 from matplotlib import colors
 import os
-from tools.utils import mkdir_p
+from tools.utils import mkdir_p, get_logger
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+import statsmodels.api as sm
+from sklearn.metrics import r2_score
+
+
+logger = get_logger('Plot')
+
+
+def mean_diff_plot(pred_list, gt_list, rmse_list, out_png):
+    f, ax = plt.subplots(figsize=(8, 6))
+    sm.graphics.mean_diff_plot(pred_list, gt_list, ax=ax)
+    ax.set_title(f'RMSE: {np.mean(rmse_list):.4f}, R2: {r2_score(gt_list, pred_list):.4f}')
+
+    logger.info(f'Save png to {out_png}')
+    plt.savefig(out_png, bbox_inches='tight', pad_inches=0.1)
+    plt.close()
+
+
+def scatter_plot(pred_list, gt_list, rmse_list, out_png, lower_bound=12, upper_bound=50):
+    f, ax = plt.subplots(figsize=(8, 6))
+    ax.scatter(gt_list, pred_list, alpha=0.7)
+    ax.set_xlabel(f'Ground-Truth BMI')
+    ax.set_ylabel(f'Predicted BMI')
+    ax.set_title(f'RMSE: {np.mean(rmse_list):.4f}, R2: {r2_score(gt_list, pred_list):.4f}')
+
+    ax.set_xlim(lower_bound, upper_bound)
+    ax.set_ylim(lower_bound, upper_bound)
+    ax.plot([lower_bound, upper_bound], [lower_bound, upper_bound], linestyle='--', alpha=0.7, c='r')
+
+    logger.info(f'Save png to {out_png}')
+    plt.savefig(out_png, bbox_inches='tight', pad_inches=0.1)
+    plt.close()
 
 
 def plot_training_curve(data_dict, out_png):
