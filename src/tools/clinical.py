@@ -180,7 +180,15 @@ class ClinicalDataReaderSPORE:
                     abs_shift = np.abs(attr_raw_label_list - sess_value)
                     sorted_abs_shift = np.sort(abs_shift)
 
-                    in_consistency_score = sorted_abs_shift[1]
+                    # With consideration of those redundant case cannot actually be confirmed.
+                    max_abs_shift = np.max(sorted_abs_shift)
+                    if max_abs_shift <= 1.0e-3:
+                        continue
+
+                    non_zero_abs_shift_list = sorted_abs_shift[sorted_abs_shift > 1.0e-3]
+                    in_consistency_score = np.min(non_zero_abs_shift_list)
+
+                    # in_consistency_score = sorted_abs_shift[1]
                     inconsistency_data_dict[sess_name] = {
                         'subj_id': subj_id,
                         'value': sess_value,

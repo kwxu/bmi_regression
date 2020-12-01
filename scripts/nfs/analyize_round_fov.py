@@ -43,7 +43,11 @@ def axial_clip_plot_native():
 fov_file_list_folder = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/fov'
 mkdir_p(fov_file_list_folder)
 out_file_list_round_fov = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/fov/round_fov'
+# out_file_list_round_fov = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/fov/normal_fov'
+# out_file_list_round_fov = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/result_temporal'
+# out_file_list_round_fov = '/nfs/masi/xuk9/SPORE/CAC_class/clinical/bmi_include_list.txt'
 out_file_list_normal_fov = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/fov/normal_fov'
+file_list_all = '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/fov/all'
 
 threshold_val = -2500
 thres_num_voxel = 100
@@ -110,6 +114,20 @@ def plot_round_normal_distribution():
     plt.close()
 
 
+def _get_rmse_mean_shift_group(file_list, data_df):
+    round_fov_df = data_df.loc[file_list]
+
+    round_fov_pred_list = round_fov_df['pred'].to_numpy()
+    round_fov_label_list = round_fov_df['label'].to_numpy()
+
+    round_fov_rmse = np.sqrt(np.mean(np.power(round_fov_label_list - round_fov_pred_list, 2)))
+
+    print(len(file_list))
+    print(f'{round_fov_rmse:.3f}')
+    mean_shift = np.mean(round_fov_pred_list - round_fov_label_list)
+    print(f'{mean_shift:.3f}')
+
+
 def plot_round_fov_output(yaml_config):
     """
     Get the output plot on round fov cases. Run regression_agreement_analysis before this.
@@ -129,6 +147,14 @@ def plot_round_fov_output(yaml_config):
     data_df = pd.read_csv(in_csv, index_col='file_name')
 
     round_fov_file_list = read_file_contents_list(out_file_list_round_fov)
+    _get_rmse_mean_shift_group(round_fov_file_list, data_df)
+
+    normal_fov_file_list = read_file_contents_list(out_file_list_normal_fov)
+    _get_rmse_mean_shift_group(normal_fov_file_list, data_df)
+
+    all_file_list = read_file_contents_list(file_list_all)
+    _get_rmse_mean_shift_group(all_file_list, data_df)
+
     round_fov_df = data_df.loc[round_fov_file_list]
 
     round_fov_pred_list = round_fov_df['pred'].to_numpy()
@@ -151,6 +177,7 @@ def main():
 
     # yaml_config = 'simg_bmi_regression_3.6.4_nfs.yaml'
     yaml_config = 'simg_bmi_regression_3.6.3_nfs.yaml'
+    # yaml_config = 'simg_bmi_regression_0_3.1_nfs.yaml'
     plot_round_fov_output(yaml_config)
 
 

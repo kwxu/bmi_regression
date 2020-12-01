@@ -7,12 +7,16 @@
 
 # A new project after fix the rounding fov problem.
 
+# Apply random mask on training phase.
+
+# Use the ambient value 0
+
 task: 'BMI'
-exp_dir: '/proj_root/output/simg_bmi_regression_3.6.4'
-input_img_dir: '/proj_root/data/atlas/valid_region/s6.1_int'
-input_jac_dir: '/proj_root/data/atlas/valid_region/s6.2_jac'
-input_valid_mask_dir: '/proj_root/data/atlas/valid_region/s6_body_mask_intersect'
-input_d_index_dir: '/proj_root/data/atlas/d_index/s1_resampled'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_3.6.6.1'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6.1_int'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6.2_jac'
+input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s6_body_mask_intersect'
+input_d_index_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/d_index/s1_resampled'
 learning_rate: 0.00001   #default 0.0001s
 res:
   - 192
@@ -27,8 +31,8 @@ sample_duration: 64
 batch_size: 2
 fcnum: 1536
 networkName: 'resnet34'
-label_csv: '/proj_root/clinical/label_full_combined.csv'
-train_file_list_txt: '/proj_root/file_lists/result_temporal'
+label_csv: '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
+train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/result_temporal'
 add_intensity_map: False
 add_jacobian_map: True
 add_valid_mask_map: False
@@ -36,8 +40,8 @@ add_d_index_map: False
 apply_valid_mask: False
 add_jac_elem_maps: False
 data_augmentation: True
-apply_random_valid_mask: False
-ambient_val: 0
+apply_random_valid_mask: True
+ambient_val: 0 # The value to impute or pad after scaling valid value to [0, 255]
 img_max: 600
 img_min: -1000
 jac_max: 1.5

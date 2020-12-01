@@ -34,6 +34,8 @@ add_d_index_map: False
 apply_valid_mask: False
 add_jac_elem_maps: False
 data_augmentation: True
+apply_random_valid_mask: False
+ambient_val: 0
 img_max: 600
 img_min: -1000
 jac_max: 1.5

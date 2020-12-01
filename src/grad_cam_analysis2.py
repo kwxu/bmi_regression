@@ -146,9 +146,13 @@ def save_average(cam_list_dict, out_folder):
 cam_folder_nfs = '/nfs/masi/xuk9/SPORE/CAC_class/average_cam'
 
 
+# default_yaml_config = 'simg_bmi_regression_3.6.6.1_nfs.yaml'
+default_yaml_config = 'simg_bmi_regression_3.6.4_nfs.yaml'
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--yaml-config', type=str, default='simg_bmi_regression_3.6.4_nfs.yaml')
+    parser.add_argument('--yaml-config', type=str, default=default_yaml_config)
     parser.add_argument('--cam-folder', type=str, default=cam_folder_nfs)
     args = parser.parse_args()
 

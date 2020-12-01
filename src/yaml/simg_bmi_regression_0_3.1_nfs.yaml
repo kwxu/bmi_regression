@@ -1,0 +1,54 @@
+# Reformulate the preprocess
+# 1. resample to make sure voxel have same physical dimension.
+# 2. pad to the same size
+# 3. resample to same dimension
+
+# Remove the BMI outliers, temporal consistency check.
+
+# 0_3 -> 0_2, modification on K-Fold split: 1) session level split; 2) shuffle before split.
+# Target is to reduce the inter-fold variation.
+
+# Remove the augmentation on validation and testing phase.
+
+task: 'BMI'
+exp_dir: '/nfs/masi/xuk9/SPORE/CAC_class/output/simg_bmi_regression_0_3.1'
+input_img_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/s16_riqiang_resample'
+input_jac_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/jac/s1_resampled'
+input_valid_mask_dir: '/nfs/masi/xuk9/SPORE/CAC_class/data/atlas/valid_region/s2_atlas_ori_valid_region'
+learning_rate: 0.00001   #default 0.0001s
+res:
+  - 192
+  - 128
+  - 64
+imsize:
+  - 192
+  - 128
+  - 64
+sample_size: 128
+sample_duration: 64
+batch_size: 2
+fcnum: 1536
+networkName: 'resnet34'
+label_csv: '/nfs/masi/xuk9/SPORE/CAC_class/clinical/label_full_combined.csv'
+train_file_list_txt: '/nfs/masi/xuk9/SPORE/CAC_class/file_lists/result_temporal'
+add_intensity_map: True
+add_jacobian_map: False
+add_valid_mask_map: False
+add_d_index_map: False
+add_jac_elem_maps: False
+apply_valid_mask: False # If true, set the value outside the mask to -255
+data_augmentation: True
+apply_random_valid_mask: False
+ambient_val: 0 # The value to impute or pad after scaling valid value to [0, 255]
+img_max: 600
+img_min: -1000
+jac_max: 10
+jac_min: -5
+start_epoch: 0
+epoch_num: 201
+lr_scheduler_step: 10
+lr_scheduler_gamma: 0.8
+fold_num: 5
+output_epoch_model: False
+no_increase_step_limit: 50
+gcam_target_layer: layer2
