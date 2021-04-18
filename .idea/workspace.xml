@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="573f6dea-b720-49bf-8c0f-c14f3fdcc30c" name="Default Changelist" comment="INI">
+      <change afterPath="$PROJECT_DIR$/.idea/bmi_regression.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/remote-mappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tools/clinical.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/clinical.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.4967704">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/plot_cam_intensity_overlay.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="418">
+                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/plot.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="6555">
+                  <caret line="353" column="40" selection-start-line="353" selection-start-column="40" selection-end-line="353" selection-end-column="40" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/get_ground_truth_vs_prediction_plot.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="580">
+                  <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.1_accre.yaml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="532">
+                  <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/tools/utils.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="513">
+                  <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/get_r_square.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/model/ResNet3D.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3173">
+                  <caret line="172" column="43" lean-forward="true" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/clinical.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/simg/bin/train_model_single_fold.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="399">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/simg/bin/train_model_run_test.sh">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="152">
+                  <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/plot.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="8816">
+                  <caret line="464" selection-start-line="464" selection-end-line="464" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/paral.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="171">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/paral_average.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="247">
+                  <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tools/paral_get_average_intensity_mask.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="247">
+                  <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/plot_cam_intensity_overlay.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="133">
+                  <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/yaml/bmi_regression_1.yaml">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_1.yaml">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_7.yaml">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_17.2_nfs.yaml">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>_in_back_img_path</find>
+      <find>SRC_ROOT</find>
+      <find>in_csv_file</find>
+      <find>ax.</find>
+      <find>gcam_link</find>
+      <find>'diff'</find>
+      <find>pred_total.csv</find>
+      <find>round_fov_mean_diff</find>
+      <find>valid_masks</find>
+      <find>img_names</find>
+      <find>ClipPlotSeriesWithBack</find>
+      <find>suppress_data_augmentation</find>
+      <find>fov/normal_fov</find>
+      <find>out_file_list_round_fov</find>
+      <find>plot_round_normal_distribution</find>
+      <find>proj_root</find>
+      <find>imshow</find>
+      <find>tile</find>
+      <find>get_train_test_data</find>
+      <find>get_data_dict</find>
+      <find>c</find>
+      <find>output_history</find>
+      <find>.hist</find>
+      <find>consis</find>
+      <find>consistency</find>
+      <find>out_height_weight_added_csv</find>
+      <find>file_lists/bmi_valid</find>
+      <find>bmi_valid</find>
+      <find>valid_bmi_file_list</find>
+      <find>re.</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>proj_root</replace>
+      <replace>'diff_abs'</replace>
+      <replace>nfs/masi/xuk9/SPORE/CAC_class</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.5_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.7.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.1.yaml" />
+        <option value="$PROJECT_DIR$/src/model/models.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_2.yaml" />
+        <option value="$PROJECT_DIR$/simg/bin/train_model_run_test.sh" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_1_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/tools/cross_validation.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_3_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_3.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.2.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.1_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.1_accre.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.3_nfs.yaml" />
+        <option value="$PROJECT_DIR$/scripts/nfs/test_bmi_session_k_fold_split.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.4_nfs.yaml" />
+        <option value="$PROJECT_DIR$/scripts/nfs/analyze_difference_between_two.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_4.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.5.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.2_accre.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.5_nfs.yaml" />
+        <option value="$PROJECT_DIR$/scripts/nfs/analyze_missing_roi.py" />
+        <option value="$PROJECT_DIR$/src/model/dataloader.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.yaml" />
+        <option value="$PROJECT_DIR$/src/model/dataset.py" />
+        <option value="$PROJECT_DIR$/scripts/nfs/debug_network_input.py" />
+        <option value="$PROJECT_DIR$/src/model/imgloader_CT_clss_3D.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.3_accre.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.1.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.2.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.2_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/train_n_fold.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.3.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_3.1.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_5.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.4.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.4_accre.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.3.yaml" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_3.1_nfs.yaml" />
+        <option value="$PROJECT_DIR$/scripts/nfs/analyize_round_fov.py" />
+        <option value="$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.1_nfs.yaml" />
+        <option value="$PROJECT_DIR$/src/tools/plot.py" />
+        <option value="$PROJECT_DIR$/scripts/nfs/regression_agreement_analysis.py" />
+        <option value="$PROJECT_DIR$/src/grad_cam_analysis2.py" />
+        <option value="$PROJECT_DIR$/src/plot_cam_intensity_overlay.py" />
+        <option value="$PROJECT_DIR$/src/model/trainer.py" />
+        <option value="$PROJECT_DIR$/src/tools/clinical.py" />
+        <option value="$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="240" />
+    <option name="y" value="156" />
+    <option name="width" value="1440" />
+    <option name="height" value="793" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="nfs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="simg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="simg" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="simg" type="462c0819:PsiDirectoryNode" />
+              <item name="slurm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bmi_regression" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bmi_regression" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/simg/bin" />
+      <recent name="$PROJECT_DIR$/simg" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scripts/nfs" />
+      <recent name="$PROJECT_DIR$/src/yaml" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/tools" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.run_temporary_consistency_test">
+    <configuration name="grad_cam_analysis2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmi_regression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/grad_cam_analysis2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot_cam_intensity_overlay" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmi_regression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/plot_cam_intensity_overlay.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="regression_agreement_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmi_regression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/nfs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/nfs/regression_agreement_analysis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_temporary_consistency_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmi_regression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/nfs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_temporary_consistency_test_both_male_female" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bmi_regression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/nfs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test_both_male_female.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.run_temporary_consistency_test" />
+        <item itemvalue="Python.run_temporary_consistency_test_both_male_female" />
+        <item itemvalue="Python.regression_agreement_analysis" />
+        <item itemvalue="Python.plot_cam_intensity_overlay" />
+        <item itemvalue="Python.grad_cam_analysis2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="573f6dea-b720-49bf-8c0f-c14f3fdcc30c" name="Default Changelist" comment="" />
+      <created>1604711042097</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604711042097</updated>
+      <workItem from="1604711043452" duration="169000" />
+      <workItem from="1604711220410" duration="33588000" />
+      <workItem from="1604817409898" duration="5461000" />
+      <workItem from="1604909638271" duration="2845000" />
+      <workItem from="1604969244037" duration="16061000" />
+      <workItem from="1605041418376" duration="75840000" />
+      <workItem from="1605334945375" duration="43662000" />
+      <workItem from="1605586958073" duration="20739000" />
+      <workItem from="1605733077259" duration="5147000" />
+      <workItem from="1605771818728" duration="33971000" />
+      <workItem from="1605980013033" duration="17016000" />
+      <workItem from="1606152985611" duration="30131000" />
+      <workItem from="1606268344314" duration="71165000" />
+      <workItem from="1606779567512" duration="2247000" />
+      <workItem from="1606865871559" duration="46000" />
+      <workItem from="1606869371614" duration="1651000" />
+      <workItem from="1607036879527" duration="329000" />
+      <workItem from="1607499471754" duration="774000" />
+      <workItem from="1607540763895" duration="605000" />
+      <workItem from="1607584293043" duration="2813000" />
+      <workItem from="1607660879613" duration="232000" />
+      <workItem from="1607719257359" duration="1743000" />
+      <workItem from="1607735535326" duration="1205000" />
+      <workItem from="1607897929522" duration="57000" />
+      <workItem from="1608532081217" duration="3103000" />
+      <workItem from="1608572930881" duration="4613000" />
+      <workItem from="1608615223649" duration="2038000" />
+      <workItem from="1608660997185" duration="2035000" />
+      <workItem from="1608671409657" duration="1907000" />
+      <workItem from="1608686400403" duration="4630000" />
+      <workItem from="1608748967138" duration="652000" />
+      <workItem from="1608766960338" duration="1268000" />
+      <workItem from="1609035976208" duration="934000" />
+      <workItem from="1609092928269" duration="1000" />
+      <workItem from="1609628285013" duration="2782000" />
+      <workItem from="1609639353263" duration="600000" />
+      <workItem from="1609662612149" duration="1635000" />
+      <workItem from="1609910869407" duration="1147000" />
+      <workItem from="1612682209259" duration="2939000" />
+      <workItem from="1612764100537" duration="3796000" />
+      <workItem from="1614069527816" duration="1680000" />
+      <workItem from="1614272924203" duration="6000" />
+      <workItem from="1614732210243" duration="2374000" />
+      <workItem from="1614902319720" duration="3872000" />
+      <workItem from="1616992209202" duration="2036000" />
+    </task>
+    <task id="LOCAL-00001" summary="BMI regressor - initial commit.">
+      <created>1604735677440</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604735677440</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add testing configuration on ACCRE.">
+      <created>1604771874283</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604771874283</updated>
+    </task>
+    <task id="LOCAL-00003" summary="bug fix.">
+      <created>1604783489759</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604783489759</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Grad-CAM configuration.">
+      <created>1605076090327</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605076090327</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add valid region mask">
+      <created>1605160400638</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605160400638</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Testing configurations for valid masks.">
+      <created>1605205231939</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605205231939</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add test using only the valid region map.">
+      <created>1605243667695</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605243667695</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Remove the data augmentation to see if can resolve the suspicious boundary attention.">
+      <created>1605372791254</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605372791254</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Progress in debugging. Add the affine information to the jacobian.">
+      <created>1605487898763</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605487898763</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add body mask">
+      <created>1605660058510</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605660058510</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implement 9 channel jacobian.">
+      <created>1605833205405</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1605833205405</updated>
+    </task>
+    <task id="LOCAL-00012" summary="BMI temporal consistency check.">
+      <created>1605983040709</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1605983040709</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Change the way to split data into k-fold:&#10;1. Shuffle before split&#10;2. Split at the session level (previously on subject level)&#10;Target to reduce inter-fold variation.">
+      <created>1606157423008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606157423008</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Analyze the round field of view problem">
+      <created>1606273399986</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606273399986</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Only use the normal FOV cases.">
+      <created>1606365675054</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606365675054</updated>
+    </task>
+    <task id="LOCAL-00016" summary="1. Remove the data augmentation on validation and testing loader&#10;2. Utilities for analyzing round fov issues.">
+      <created>1606526644572</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1606526644572</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Random fov mask in training phase.">
+      <created>1606582586030</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1606582586030</updated>
+    </task>
+    <task id="LOCAL-00018" summary="We close the atlas project.">
+      <created>1606865897776</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1606865897776</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="411545000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1919" y="0" width="1922" height="1081" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29957128" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35600424" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985122" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Missing In Actions" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32943678" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="bottom" id="File Transfer" order="14" weight="0.25823593" />
+      <window_info anchor="bottom" id="Messages" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.23942538" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="BMI regressor - initial commit." />
+    <MESSAGE value="Add testing configuration on ACCRE." />
+    <MESSAGE value="bug fix." />
+    <MESSAGE value="Grad-CAM configuration." />
+    <MESSAGE value="Add valid region mask" />
+    <MESSAGE value="Testing configurations for valid masks." />
+    <MESSAGE value="Add test using only the valid region map." />
+    <MESSAGE value="Remove the data augmentation to see if can resolve the suspicious boundary attention." />
+    <MESSAGE value="Progress in debugging. Add the affine information to the jacobian." />
+    <MESSAGE value="Add body mask" />
+    <MESSAGE value="Implement 9 channel jacobian." />
+    <MESSAGE value="BMI temporal consistency check." />
+    <MESSAGE value="Change the way to split data into k-fold:&#10;1. Shuffle before split&#10;2. Split at the session level (previously on subject level)&#10;Target to reduce inter-fold variation." />
+    <MESSAGE value="Analyze the round field of view problem" />
+    <MESSAGE value="Only use the normal FOV cases." />
+    <MESSAGE value="1. Remove the data augmentation on validation and testing loader&#10;2. Utilities for analyzing round fov issues." />
+    <MESSAGE value="Random fov mask in training phase." />
+    <MESSAGE value="We close the atlas project." />
+    <option name="LAST_COMMIT_MESSAGE" value="We close the atlas project." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/bmi_regression$test_bmi_session_k_fold_split.coverage" NAME="test_bmi_session_k_fold_split Coverage Results" MODIFIED="1606175142067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$run_temporary_consistency_test.coverage" NAME="run_temporary_consistency_test Coverage Results" MODIFIED="1612767195917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$get_r_square.coverage" NAME="get_r_square Coverage Results" MODIFIED="1605569003728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/bmi_regression$analyize_round_fov.coverage" NAME="analyize_round_fov Coverage Results" MODIFIED="1606689600477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$cam_average_analysis_affine.coverage" NAME="cam_average_analysis_affine Coverage Results" MODIFIED="1605122130627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$get_mean_intensity_in_mask.coverage" NAME="get_mean_intensity_in_mask Coverage Results" MODIFIED="1605115238370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/bmi_regression$run_temporary_consistency_test_both_male_female.coverage" NAME="run_temporary_consistency_test_both_male_female Coverage Results" MODIFIED="1612767130603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$debug_network_input.coverage" NAME="debug_network_input Coverage Results" MODIFIED="1606531991441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$plot_cam_intensity_overlay.coverage" NAME="plot_cam_intensity_overlay Coverage Results" MODIFIED="1606722811538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/bmi_regression$get_training_curve.coverage" NAME="get_training_curve Coverage Results" MODIFIED="1605119757084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$grad_cam_diff_analysis.coverage" NAME="grad_cam_diff_analysis Coverage Results" MODIFIED="1605222016243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$grad_cam_analysis2.coverage" NAME="grad_cam_analysis2 Coverage Results" MODIFIED="1606709859859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/bmi_regression$paral_get_average_intensity_mask.coverage" NAME="paral_get_average_intensity_mask Coverage Results" MODIFIED="1605072567827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tools" />
+    <SUITE FILE_PATH="coverage/bmi_regression$analyze_difference_between_two.coverage" NAME="analyze_difference_between_two Coverage Results" MODIFIED="1606362618098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$analyze_missing_roi.coverage" NAME="analyze_missing_roi Coverage Results" MODIFIED="1606512424869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$regression_agreement_analysis.coverage" NAME="regression_agreement_analysis Coverage Results" MODIFIED="1606723202200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+    <SUITE FILE_PATH="coverage/bmi_regression$train_n_fold.coverage" NAME="train_n_fold Coverage Results" MODIFIED="1606539889859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/bmi_regression$cam_average_analysis_native.coverage" NAME="cam_average_analysis_native Coverage Results" MODIFIED="1604988269594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scripts/nfs" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.4_accre.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.3_accre.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.2_accre.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.1_nfs.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/cam_average_analysis_affine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/cam_average_analysis_native.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/grad_cam_diff_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2327">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/get_valid_region_overlap_percentage.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.6.1_nfs.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.4.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grad_cam_analysis2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2565">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.4_nfs.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_3.6.3.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/data_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/analyze_missing_roi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/analyze_difference_between_two.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/debug_network_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_17.4_nfs.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4522">
+          <caret line="257" column="31" selection-start-line="257" selection-start-column="31" selection-end-line="257" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/grad_cam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2299">
+          <caret line="127" column="58" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/train_n_fold.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/image_manipulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/run_sbatch_cv_performance_only.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test_both_male_female.py" />
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/regression_agreement_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2375">
+          <caret line="137" column="57" selection-start-line="137" selection-start-column="57" selection-end-line="137" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/run_sbatch_yaml_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simg/slurm/sbatch.slurm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/get_mean_intensity_in_mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/run_temporary_consistency_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2185">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/nfs/test_bmi_session_k_fold_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/get_r_square.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ResNet3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3173">
+          <caret line="172" column="43" lean-forward="true" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simg/bin/train_model_single_fold.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simg/bin/train_model_run_test.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6555">
+          <caret line="353" column="40" selection-start-line="353" selection-start-column="40" selection-end-line="353" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/paral.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/paral_average.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/paral_get_average_intensity_mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plot_cam_intensity_overlay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/bmi_regression_1.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_0_1.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_7.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_17.2_nfs.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/clinical.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="147" column="9" lean-forward="true" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/get_ground_truth_vs_prediction_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/yaml/simg_bmi_regression_21.1_accre.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

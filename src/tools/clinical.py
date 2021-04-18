@@ -185,7 +185,11 @@ class ClinicalDataReaderSPORE:
                     if max_abs_shift <= 1.0e-3:
                         continue
 
+                    print(len(sorted_abs_shift))
+                    print(sorted_abs_shift)
+                    print(sess_name)
                     non_zero_abs_shift_list = sorted_abs_shift[sorted_abs_shift > 1.0e-3]
+                    print(len(non_zero_abs_shift_list))
                     in_consistency_score = np.min(non_zero_abs_shift_list)
 
                     # in_consistency_score = sorted_abs_shift[1]

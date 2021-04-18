@@ -69,6 +69,7 @@ def analyze_the_temporal_consistency_check(attr_flag):
     label_obj = ClinicalDataReaderSPORE.create_spore_data_reader_csv(out_height_weight_added_csv)
 
     file_name_list = read_file_contents_list(valid_bmi_file_list)
+    file_name_list = [f'{file_name}.nii.gz' for file_name in file_name_list]
     sess_list_all = [file_name.replace('.nii.gz', '') for file_name in file_name_list]
     # inconsistency_data_dict = label_obj.temporal_consistency_check(attr_flag, file_name_list)
 
@@ -204,6 +205,8 @@ def get_bmi_distribution_compare(file_name_list_include, file_name_list_total):
 
 def get_longitudinal_info_in_raw_label_data():
     file_name_list = read_file_contents_list(valid_bmi_file_list)
+    file_name_list = [f'{file_name}.nii.gz' for file_name in file_name_list]
+    print(file_name_list[-10:])
     subject_id_list = [
         ClinicalDataReaderSPORE._get_subject_id_from_file_name(file_name)
         for file_name in file_name_list
@@ -244,7 +247,7 @@ def main():
     # inconsist_list_H, thres_H = analyze_the_temporal_consistency_check('heightinches')
     # inconsist_list_W, thres_W = analyze_the_temporal_consistency_check('weightpounds')
     consist_list_bmi, inconsist_list_bmi, thres_bmi, non_long_sess_list = analyze_the_temporal_consistency_check('bmi')
-    #
+
     # print(f'# Height inconsistency: {len(inconsist_list_H)}, thres: {thres_H:.3f}')
     # print(f'# Weight inconsistency: {len(inconsist_list_W)}, thres: {thres_W:.3f}')
     print(f'# BMI pass consist check: {len(consist_list_bmi)}, failed: {len(inconsist_list_bmi)}, thres: {thres_bmi:.3f}')

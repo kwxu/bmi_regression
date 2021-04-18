@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0a9c497b-2789-436a-9930-e585590e30be" name="bmi_regression@nfs" url="http://manchu">
+        <fileTransfer host="manchu" port="22" rootFolder="/nfs/masi/xuk9/src/bmi_regression" accessType="SFTP" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="f3369a82-264f-4e60-9071-d6d00b009c53" name="bmi_regression@accre" url="http://hickory">
+        <fileTransfer host="hickory" port="22" rootFolder="/home/xuk9/src/bmi_regression" accessType="SFTP" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
